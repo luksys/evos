@@ -1,5 +1,48 @@
 .main {
 	padding: 20px 0;
+	.main-content {
+		overflow: hidden;
+		float: left;
+    	width: calc(100% - 340px);
+    	background: #fff;
+    	padding: 20px 40px;
+    	@extend %clear;
+    	@include until($small-desktop){
+    		float: none;
+    		width: 100%;
+    	}
+    	.article-image {
+    		position: relative;
+    		margin-bottom: 40px;
+    		.article-image-inner {
+    			position: relative;
+    			.image-caption {
+	    			position: absolute;
+	    			bottom: 0;
+	    			left: 0;
+	    			right: 0;
+	    			padding: 5px 15px;
+	    			background: rgba(0,0,0,0.5);
+	    			color: #fff;
+	    			font-size: 12px;
+	    		}
+    		}
+
+    		.image-credit {
+    			font-size: 10px;
+    			text-align: right;
+    		}
+    	}
+
+    	figure, iframe, img {
+			margin: 15px 0;
+		}
+
+		iframe, img {
+			max-width: 100%;
+			display: block;
+		}
+	}
 	.articles-wrapper {
 		overflow: hidden;
 		float: left;
@@ -13,36 +56,31 @@
 			font-size: 14px;
 			background: #fff;
 			padding: 20px;
+
 			&.featured {
-				.article-image {
-					display:inline-block;
-					vertical-align: top;
-	    			width: 30%;
+				text-align: center;
 
-	    			@include until($tablet){
-	    				width: auto;
-	    			}
-				}
 				.article-excerpt {
-					display:inline-block;
-					width:68%;
-					padding-left: 30px;
-
-					@include until($tablet){
-	    				padding: 20px 0 0;
-	    				width: 100%;
-	    			}
+					text-align: left;
 				}
-
-				.article-image {
-					margin:0;
+			}
+			
+			.title {
+				a {
+					display: block;
+					text-align: center;
+					text-decoration: none;
 				}
 			}
 
-			.article-image {
-				display:block;
-				margin: 15px 0;
-				max-width: 100%;
+
+			.article-image-wrapper {
+				display: block;
+				.article-image {
+					display:block;
+					margin: 15px 0;
+					max-width: 100%;
+				}
 			}
 		}
 

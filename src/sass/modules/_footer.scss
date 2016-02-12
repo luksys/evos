@@ -63,7 +63,7 @@
 				.body-text{
 					float: right;
 					width: calc(100% - 60px);
-	    			padding-left: 20px;
+	    			padding-left: 5px;
 				}
 			}
 		}
@@ -96,13 +96,38 @@
 	}
 	.footer-bottom {
 		background: #383737;
-		.copyright {
-			padding: 6px 0;
-			font-size: 12px;
-			p {
-				margin:0;
+		.c {
+			@extend %clear;
+			
+			.menu {
+				margin-top: 3px;
+				float: left;
+				.menu-item {
+					margin-right: 14px;
+					padding-left:0;
+					a {
+						color: #fff;
+						font-size: 12px;
+						display: inline-block;
+						padding-left: 0;
+
+						&:hover {
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+
+			.copyright {
+				float: right;
+				padding: 6px 0;
+				font-size: 12px;
+				p {
+					margin:0;
+				}
 			}
 		}
+		
 	}
 
 	.scroll-to-top {

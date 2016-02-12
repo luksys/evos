@@ -16,3 +16,107 @@
 		}
 	}
 }
+
+.socials {
+	@extend %clear;
+	.icons {
+		text-align: right;
+		.icons-item {
+			padding: 0 2px;
+			a {
+				position: relative;
+				display: block;
+    			min-width: 60px;
+    			padding: 5px 20px;
+				margin: 2px 0;
+				border-radius: 2px;
+				text-decoration: none;
+				text-align: center;
+				color: #fff;
+				
+				&:hover {
+					color: #fff;
+					.fa {
+						color: #fff;
+					}
+
+					> .fa-plus {
+						opacity: 1;
+						visibility: visible;
+						
+						&:before {
+							transform: translate(-50%, -40%);
+							// transform: rotate(250deg);
+						}
+					}
+				}
+				&[href*='facebook']{
+					background: #3C5A99;
+
+					.fa-facebook {
+						position: relative;
+						top: 1px;
+					}
+				}
+
+				&[href*='twitter']{
+					background: #00C3F3;
+
+					.fa-twitter {
+						font-size: 20px;
+						position: relative;
+						top: 2px;
+					}
+				}
+				
+				&[href*='instagram']{
+					background: #325C86;
+				}
+
+				&[href*='pinterest']{
+					background: #CB2027;
+				}
+
+				&[href*='linkedin']{
+					background: #007BB6;
+				}
+				   
+				.share-text {
+					font-size: 14px;
+					display: inline-block;
+					margin-right: 5px;
+				}
+
+				.fa-plus {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					right: 0;
+					left: 0;
+					display: block;
+					background: rgba(0,0,0,0.8);
+					border-radius: 2px;
+					opacity: 0;
+					visibility: 0;
+					transition-property: visibility, opacity;
+					transition-duration: 0.2s;
+					overflow: hidden;
+
+					&:before {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						display: block;
+
+						transform: translate(-50%, 100%);
+						// transform: rotate(0deg);
+
+						transition-property: transform;
+						transition-delay: 0.2s;
+						transition-duration: 0.15s;
+					}
+				}
+			}
+		}
+	}
+}
