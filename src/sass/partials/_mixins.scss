@@ -1,0 +1,34 @@
+@function em($pixels, $context: $font-size-base) {
+	@return #{$pixels/$context}em
+}
+
+@mixin at-least($device-width) {
+  @media screen and (min-width: $device-width) {
+    @content 
+  }
+}
+
+@mixin until($device-width) {
+  @media screen and (max-width: $device-width - 1) {
+    @content 
+  }
+}
+
+@mixin font-icon {
+	line-height:1;
+	font-style: normal !important;
+	font-weight: normal !important;
+	font-variant: normal !important;
+	text-transform: none !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-family: $icon-family-base;
+}
+
+@mixin animate($property,$time,$animateType){
+  -webkit-transition: $property $time $animateType;
+   -moz-transition: $property $time $animateType;
+     -o-transition: $property $time $animateType;
+    -ms-transition: $property $time $animateType;
+        transition: $property $time $animateType;
+}

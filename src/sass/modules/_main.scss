@@ -1,0 +1,136 @@
+.main {
+	padding: 20px 0;
+	.articles-wrapper {
+		overflow: hidden;
+		float: left;
+    	width: calc(100% - 340px);
+    	@extend %clear;
+    	@include until($small-desktop){
+    		float: none;
+    		width: 100%;
+    	}
+		.article {
+			font-size: 14px;
+			background: #fff;
+			padding: 20px;
+			&.featured {
+				.article-image {
+					display:inline-block;
+					vertical-align: top;
+	    			width: 30%;
+
+	    			@include until($tablet){
+	    				width: auto;
+	    			}
+				}
+				.article-excerpt {
+					display:inline-block;
+					width:68%;
+					padding-left: 30px;
+
+					@include until($tablet){
+	    				padding: 20px 0 0;
+	    				width: 100%;
+	    			}
+				}
+
+				.article-image {
+					margin:0;
+				}
+			}
+
+			.article-image {
+				display:block;
+				margin: 15px 0;
+				max-width: 100%;
+			}
+		}
+
+		.mult-article-wrapper {
+			padding: 20px 0;
+		}
+	}	
+}
+
+.more-link {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+    padding: 5px 10px;
+    border: 1px solid $brand-color;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    
+
+    &:after {
+    	content: "";
+	    background: $brand-color;
+	    position: absolute;
+	    z-index: -1;
+	    padding: 0.85em 0.75em;
+	    display: block;
+	    -webkit-transition: all 0.4s ease;
+	    transition: all 0.4s ease;
+        left: 0;
+	    right: 0;
+	    top: 0;
+	    bottom: 0;
+	    -webkit-transform: skewX(45deg) scale(0, 1);
+	    transform: skewX(45deg) scale(0, 1);
+    }
+
+    &:hover {
+    	color: #fff;
+    	&:after {
+    		-webkit-transition: all 0.4s ease-out;
+		    transition: all 0.4s ease-out;
+		    -webkit-transform: skewX(45deg) scale(1, 1);
+		    transform: skewX(45deg) scale(1, 1);
+	    }
+    }
+}
+
+.next-link {
+	text-decoration: none;
+    color: #222;
+    float: right;
+
+    &:hover {
+    	text-decoration: underline;
+    }
+
+    .fa {
+    	margin-left: 12px;
+    	vertical-align: middle;
+    }
+}
+
+.back-link {
+	text-decoration: none;
+    color: #222;
+    float: left;
+
+    &:hover {
+    	text-decoration: underline;
+    }
+
+    .fa {
+    	margin-right: 12px;
+    	vertical-align: middle;
+    }
+}
+
+.back-link, .next-link {
+	 &:hover {
+    	text-decoration: underline;
+    }
+
+    .fa {
+    	vertical-align: middle;
+    	position: relative;
+    	top: -1px;
+    }
+}

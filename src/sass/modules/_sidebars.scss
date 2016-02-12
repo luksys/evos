@@ -1,0 +1,118 @@
+.sidebar {
+	float: right;
+    width: 320px;
+    padding: 20px;
+    margin-left: 20px;
+    background: #fff;
+    font-size: $font-size-alt;
+
+    @include until($small-desktop){
+		float: none;
+    	width: 100%;
+    	display: block;
+    	padding: 20px;
+    	margin: 25px 0 0;
+	}
+
+    ul {
+    	list-style-type: none;
+    	padding:0;
+    	margin:0;
+    }
+
+    .title {
+    	margin: 35px 0;
+    	position: relative;
+
+    	&:first-child {
+    		margin-top:0;
+    	}
+
+    	&:after{
+   			content: '';
+    		position: absolute;
+    		left:0;
+    		bottom: -10px;
+    		height: 1px;
+    		width: 60px;
+    		background: $brand-color;
+    	}
+    }
+	
+	.popular-posts {
+		.sinle-popular-post {
+			margin-bottom: 35px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+			.categories {
+				margin-top: 13px;
+		    	.category {
+		    		display: inline-block;
+		    		color: $brand-color;
+		    		
+		    		a {
+		    			color: $brand-color;
+		    			font-size: 12px;
+		    			text-decoration: none;
+		    			&:hover {
+		    				text-decoration: underline;
+		    			}
+		    		}
+		    	}
+		    }
+		}
+	}
+
+	.popular-categories {
+		.single-popular-category {
+			margin-bottom: 15px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+			a {
+				text-decoration: none;
+    			display: block;
+				@extend %clear;
+    			.count {
+    				float:right;
+    			}
+			}
+		}
+	}
+
+	.recent-comments {
+		.single-comment {
+			margin-bottom: 15px;
+			&:last-child{
+				margin-bottom: 0;
+			}
+			.text-body {
+				width: 84%;
+			}
+		}
+	}
+	
+	// Commont styles
+	.featured-image, .text-body {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.featured-image{
+		margin: 6px 0 0 0;
+	}
+	.text-body {
+		width: 72%;
+		padding-left: 20px;
+		color: $text-color;
+
+		.date {
+			color: #cdcecb;
+			font-size: 12px;
+		}
+	}
+
+	.inner-wrapper {
+		display: block;
+	}
+}
