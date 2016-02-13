@@ -1,20 +1,4 @@
 /*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
-
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-/*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
  *
@@ -282,7 +266,8 @@ body {
 	font: $font-size-base $font-family-base;
     font-weight: 400;
     line-height: 1.6;
-    background: #fff; 
+    background: #fff;
+    margin:0; 
 }
 %clear:after {
     content: "."; 

@@ -16,6 +16,9 @@
     		margin-bottom: 40px;
     		.article-image-inner {
     			position: relative;
+    			.featured-image {
+    				margin-bottom: 10px;
+    			}
     			.image-caption {
 	    			position: absolute;
 	    			bottom: 0;
@@ -35,7 +38,7 @@
     	}
 
     	figure, iframe, img {
-			margin: 15px 0;
+			margin: 20px 0;
 		}
 
 		iframe, img {
