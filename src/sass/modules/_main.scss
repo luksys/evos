@@ -66,6 +66,19 @@
 			}
 			
 			.title {
+				transition: color 0.2s ease-out;
+				&:hover {
+					color: #afd137;
+				}
+				&:after {
+					content: '';
+    				width: 25px;
+    				height: 1px;
+    				background: $brand-color;
+    				display: block;
+    				margin: 9px auto 0 auto;
+				}
+				
 				a {
 					display: block;
 					text-align: center;
@@ -76,10 +89,17 @@
 
 			.article-image-wrapper {
 				display: block;
+				overflow: hidden;
+				margin-bottom: 20px;
+				&:hover {
+					.article-image {
+						transform: scale(1.1);
+					}
+				}
 				.article-image {
 					display:block;
-					margin: 15px 0;
 					max-width: 100%;
+					transition: transform 0.5s ease-out;
 				}
 			}
 		}
@@ -88,47 +108,6 @@
 			padding: 20px 0;
 		}
 	}	
-}
-
-.more-link {
-	display: inline-block;
-	position: relative;
-	z-index: 1;
-	overflow: hidden;
-    padding: 5px 10px;
-    border: 1px solid $brand-color;
-    color: #000;
-    background: #fff;
-    text-decoration: none;
-    font-size: 15px;
-    
-
-    &:after {
-    	content: "";
-	    background: $brand-color;
-	    position: absolute;
-	    z-index: -1;
-	    padding: 0.85em 0.75em;
-	    display: block;
-	    -webkit-transition: all 0.4s ease;
-	    transition: all 0.4s ease;
-        left: 0;
-	    right: 0;
-	    top: 0;
-	    bottom: 0;
-	    -webkit-transform: skewX(45deg) scale(0, 1);
-	    transform: skewX(45deg) scale(0, 1);
-    }
-
-    &:hover {
-    	color: #fff;
-    	&:after {
-    		-webkit-transition: all 0.4s ease-out;
-		    transition: all 0.4s ease-out;
-		    -webkit-transform: skewX(45deg) scale(1, 1);
-		    transform: skewX(45deg) scale(1, 1);
-	    }
-    }
 }
 
 .next-link {
@@ -170,5 +149,24 @@
     	vertical-align: middle;
     	position: relative;
     	top: -1px;
+    }
+}
+
+.load-more {
+	display: block;
+    width: 180px;
+    margin: 0 auto;
+    padding: 5px 10px;
+    color: #fff;
+    text-decoration: none;
+    background: #464545;
+    text-align: center;
+    font-size: 15px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease-out;
+    border-radius: 2px;
+
+    &:hover {
+    	background: #353434;
     }
 }

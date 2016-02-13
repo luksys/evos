@@ -16,3 +16,24 @@ input[type="text"]:focus,input[type="password"]:focus,input[type="date"]:focus,i
 	border-color: #999999;
 	outline: none;
 }
+
+.button {
+	font-size: 15px;
+	display: inline-block;
+	overflow: hidden;
+    padding: 5px 10px;
+    color: #000;
+    background: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    transition: border-color, color;
+    transition-duration: 0.2s;
+    transform-style: ease-out;
+    
+    &:hover {
+		color: $brand-color;
+		border-color: $brand-color;
+    }
+}
