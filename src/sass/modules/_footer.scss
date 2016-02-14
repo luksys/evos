@@ -37,63 +37,17 @@
 			@include until($small-desktop){
 				padding-left: 0;
 			}
-			   
-			&:first-child {
-				padding-left:0;
-			}
-			&:last-child {
-				padding-right:0;
-			}
-		}
-	}
-	
-
-	.recent-posts {
-		.recent-post  {
-			@extend %clear;
-			margin-bottom: 10px;
-			.inner-block {
-				display: block;
-				text-decoration: none;
-
-				.featured-image {
-					float: left;
-				}
-
-				.body-text{
-					float: right;
-					width: calc(100% - 60px);
-	    			padding-left: 5px;
-				}
-			}
 		}
 	}
 
 	.tags-wrapper {
 		margin-left: -5px;
+
 		.tag {
-			text-decoration:none;
-    		display: inline-block;
-    		background: #afd137;
-    		color: #fff;
-    		border-radius: 3px;
-    		line-height: 1;
-    		margin: 5px;
-    		padding: 6px 11px 6px 7px;
-    		font-size: 16px;
-    		font-family: $font-family-base;
-    		transition: background-color 0.3s ease-out;
-
-    		&:hover {
-    			background: #000;
-    		}
-
-    		&:before {
-    			font: normal normal normal 14px / 1 FontAwesome;
-    			margin-right: 5px;
-    		}
+			margin-left: 5px;
 		}
 	}
+
 	.footer-bottom {
 		background: #383737;
 		.c {

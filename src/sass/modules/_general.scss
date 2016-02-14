@@ -7,3 +7,57 @@ img {
 	max-width: 100%;
 	height: auto;
 }
+
+.inner-wrapper {
+	margin-bottom: 10px;
+
+	.inner-body {
+		display: inline-block;
+		vertical-align: middle;
+		width: 72%;
+		padding-left: 10px;
+	}
+	.featured-image {
+		margin: 6px 0 0 0;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+.def-link {
+	text-decoration: none;
+	color: $text-color;
+	display: block;
+	transition: color 0.2s ease-out;
+
+    * {
+        transition: color 0.2s ease-out;
+    }
+
+    &:hover {
+    	color: $brand-color;
+    }
+}
+
+.tag {
+	text-decoration:none;
+	display: inline-block;
+	background: #afd137;
+	color: #fff;
+	border-radius: 3px;
+	line-height: 1;
+	margin: 5px 5px 5px 0;
+	padding: 6px 11px 6px 7px;
+	font-size: 16px;
+	font-family: $font-family-base;
+	transition: background-color 0.3s ease-out;
+
+	&:hover {
+		background: #000;
+	}
+
+	&:before {
+		font: normal normal normal 14px / 1 FontAwesome;
+		margin-right: 5px;
+	}
+}

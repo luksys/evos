@@ -8,24 +8,15 @@
 
     @include until($small-desktop){
 		float: none;
-    	width: 100%;
-    	display: block;
-    	padding: 20px;
+    	width: auto;
     	margin: 25px 0 0;
+    	padding: 20px 0;
 	}
 
     ul {
     	list-style-type: none;
     	padding:0;
     	margin:0;
-    }
-
-    a {
-    	transition: color 0.2s ease-out;
-
-	    * {
-	        transition: color 0.2s ease-out;
-	    }
     }
 
     .title {
@@ -46,76 +37,15 @@
     		background: $brand-color;
     	}
     }
-	
-	.popular-posts {
-		.sinle-popular-post {
-			margin-bottom: 15px;
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			.post-title {
-				display: inline-block;
-				vertical-align: top;
-				color: $text-color;
-				padding-left: 10px;
-    			width: 70%;
-			}
-		}
-	}
 
 	.popular-categories {
 		.single-popular-category {
 			margin-bottom: 15px;
-			&:last-child{
-				margin-bottom: 0;
-			}
 			a {
-				text-decoration: none;
-    			display: block;
-    			color: #000;
 				@extend %clear;
-				&:hover {
-					color: $brand-color;
-				}
     			.count {
     				float:right;
     			}
-			}
-		}
-	}
-
-	.recent-comments {
-		.single-comment {
-			margin-bottom: 15px;
-			&:last-child{
-				margin-bottom: 0;
-			}
-			.text-body {
-				width: 70%;
-			}
-		}
-	}
-	
-	// Commont styles
-	.featured-image, .text-body {
-		display: inline-block;
-		vertical-align: top;
-	}
-	.featured-image{
-		margin: 6px 0 0 0;
-	}
-	.text-body {
-		width: 72%;
-		padding-left: 10px;
-		color: $text-color;
-	}
-
-	.inner-wrapper {
-		display: block;
-		&:hover {
-			.post-title, .text-body {
-				color: $brand-color;
 			}
 		}
 	}

@@ -1,16 +1,15 @@
 
 [class*='grid-'] {
   float: left;
+  @include until($small-desktop){
+   float: none;
+  }
 }
 
 .grid {
-  margin: -10px;
+  // margin: -20px;
   overflow: hidden;
   @extend %clear;
-
-  @include until($small-desktop){
-    margin:0;
-  }
 }
 .grid-1-8 {
   width: 12.5%;
@@ -25,25 +24,22 @@
 
 }
 .grid-1-3 {
-  width: calc(33.33% - 20px);
-  margin: 10px;
+  width: 33.33%;
   float: left;
+  padding: 40px 20px;
 
   @include until($small-desktop){
-    width: 100%;
+    width: auto;
     float: none;
-    margin:0;
   }
 }
 .grid-1-2 {
-  width: calc(50% - 20px);
-  margin: 10px;
+  width: 50%;
   float: left;
 
   @include until($small-desktop){
-    width: 100%;
+    width: auto;
     float: none;
-    margin: 10px 0;
   }
 }
 .grid-1-1 {
