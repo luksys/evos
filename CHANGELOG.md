@@ -1,259 +1,258 @@
-### HEAD
+### [HTML5 Blank](http://evos.com) Changelog
 
-* Change print color for ::first-letter and ::first-line pseudo-elements
-  ([#1715](https://github.com/h5bp/html5-boilerplate/pull/1715)).
+## 1.4.3 (02 December, 2013)
 
-### 5.2.0 (May 1, 2015)
+* Update [conditionizr](http://conditionizr.com) to version 4.0.0
+* Update jQuery to v1.10.2
+* Update Google Analytics snippet to _new_ universal snippet
+* Improved SVG script
+* Removed empty conditionizr asset directories for `js` and `css`
+* Remove redundant Modernizr file, loading from CDN
 
-* Update jQuery to `v1.11.3`
-  ([#1699](https://github.com/h5bp/html5-boilerplate/issues/1699)).
-* Deprecate protocol-relative URLs
-  ([#1694](https://github.com/h5bp/html5-boilerplate/issues/1694)).
-* Update high resolution media query
-  ([#1474](https://github.com/h5bp/html5-boilerplate/issues/1474)).
-* Update Apache Server Configs to `v2.14.0`.
+## 1.4.2 (15 June, 2013)
 
-### 5.1.0 (April 1, 2015)
+* Add _font-size:62.5%;_ to the HTML element in CSS for _rem_ (relative-ems) sizing
+* Update jQuery 1.9.1 to 1.10.1
 
-* Update Normalize.css to `v3.0.3`.
-* Use `https://` in the Google Universal Analytics snippet
-  ([eee759b](https://github.com/h5bp/html5-boilerplate/commit/eee759bfe175e850bbc8e4ad0682ec4fe4bd05d6)).
-* Remove the `visibility: hidden` declaration from `.hidden`
-  ([#1663](https://github.com/h5bp/html5-boilerplate/issues/1663)).
-* Use `<meta http-equiv="x-ua-compatible" content="ie=edge">`<br>
-  instead of `<meta http-equiv="X-UA-Compatible" content="IE=edge">`
-  ([#1656](https://github.com/h5bp/html5-boilerplate/issues/1656)).
-* Update Apache Server Configs to `v2.13.0`.
+## 1.4.1 (26 April, 2013)
 
-### 5.0.0 (February 1, 2015)
+* Removed protocol-relative scripts/styles function as causes some disruption on some local development environments
+* Removed hard-coded jQuery from footer as was causing issues with plugins that relied on jQuery being enqueued
+* Removed jQuery CDN fallback, jQuery 1.9.1 and theme scripts will be enqueued in the &lt;head&gt; from now on to avoid conflicts with WordPress jQuery checks/detects
 
-* Update to jQuery 1.11.2.
-* Update Apache Server Configs to v2.11.0.
-* Rename Apple touch icon to `apple-touch-icon.png` and add
-  `<link>` in `index.html`
-  ([#1622](https://github.com/h5bp/html5-boilerplate/issues/1622)).
-* Add vertical centering for `iframe`
-  ([#1613](https://github.com/h5bp/html5-boilerplate/issues/1613)).
-* Change the outdated browser prompt classname to `browserupgrade`
-  ([#1608](https://github.com/h5bp/html5-boilerplate/issues/1608)).
-* Update to Normalize.css 3.0.2.
-  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
-* Update `apple-touch-icon-precomposed.png` and the _"Apple touch
-  icons"_ related documentation
-  ([#1599](https://github.com/h5bp/html5-boilerplate/pull/1599)).
-* Add pseudo-elements to universal selector in print media query
-  ([#1585](https://github.com/h5bp/html5-boilerplate/pull/1585)).
-* Update to Modernizr 2.8.3.
-* Remove need to readjust margins in `404.html`
-  ([#1567](https://github.com/h5bp/html5-boilerplate/pull/1567)).
-* Add `/.editorconfig` file
-  ([#1561](https://github.com/h5bp/html5-boilerplate/issues/1561),
-   [#1564](https://github.com/h5bp/html5-boilerplate/issues/1564)).
-* Add `auto` to the Google Universal Analytics tracker create method
-  ([#1562](https://github.com/h5bp/html5-boilerplate/issues/1562)).
-* Add `timeline` and `timelineEnd` to the list of `console` methods
-  ([#1559](https://github.com/h5bp/html5-boilerplate/issues/1559)).
-* Add `lang=""` to `<html>`
-  ([#1542](https://github.com/h5bp/html5-boilerplate/issues/1542)).
-* Use `<!doctype html>` instead of `<!DOCTYPE html>`
-  ([#1522](https://github.com/h5bp/html5-boilerplate/issues/1522)).
-* Add `/browserconfig.xml` file and tile images
-  ([#1481](https://github.com/h5bp/html5-boilerplate/issues/1481)).
-* Add `Disallow:` to `robots.txt`
-  ([#1487](https://github.com/h5bp/html5-boilerplate/issues/1487)).
-* Remove default foreground color from form elements
-  ([#1390](https://github.com/h5bp/html5-boilerplate/issues/1390)).
-* Remove default margin from print styles
-  ([#1477](https://github.com/h5bp/html5-boilerplate/issues/1477)).
-* Remove image replacement helper class `.ir`
-  ([#1472](https://github.com/h5bp/html5-boilerplate/issues/1472),
-   [#1475](https://github.com/h5bp/html5-boilerplate/issues/1475)).
-* Add vertical centering for `svg`
-  ([#1453](https://github.com/h5bp/html5-boilerplate/issues/1453)).
-* Redesign 404 page
-  ([#1443](https://github.com/h5bp/html5-boilerplate/pull/1443)).
-* Remove IE 6/7 hacks from `main.css`
-  ([#1050](https://github.com/h5bp/html5-boilerplate/issues/1050)).
-* Remove IE conditional classes
-  ([#1187](https://github.com/h5bp/html5-boilerplate/issues/1187),
-   [#1290](https://github.com/h5bp/html5-boilerplate/issues/1290)).
+## 1.4.0 (09 April, 2013)
 
-### 4.3.0 (September 10, 2013)
+* Move pagination into it's own file (pagination.php) and include in necessary template files
+* Enhanced clearfix in CSS to micro clearfix hack (works by using parent element for clear)
+* Change all HTML structural comments to lower case for cleaner look
+* Add apple-touch-icon-precomposed to &lt;head&gt;
+* Moved favicon.ico to 'img/icons'
+* Moved new apple touch icon to 'img/icons'
+* Remove Conditionizr default &lt;head&gt; setup and add config URL (cleaner code from install) please see [conditionizr](http://conditionizr.com/docs.html) for configuration
+* Reordered some meta, links in &lt;head&gt; for better readability/consistency
+* Add a few structural (but empty) classes into CSS for fast styling upon install
+* Few CSS comments added to label areas/components better
 
-* Use one `apple-touch-icon` instead of six
-  ([#1367](https://github.com/h5bp/html5-boilerplate/issues/1367)).
-* Move font-related declarations from `body` to `html`
-  ([#1411](https://github.com/h5bp/html5-boilerplate/issues/1411)).
-* Update to Apache Server Configs 1.1.0.
-* Add `initial-scale=1` to the viewport `meta`
-  ([#1398](https://github.com/h5bp/html5-boilerplate/pull/1398)).
-* Vertical centering for audio-, canvas- and video-tags
-  ([#1326](https://github.com/h5bp/html5-boilerplate/issues/1326)).
-* Remove Google Chrome Frame related code
-  ([#1379](https://github.com/h5bp/html5-boilerplate/pull/1379),
-   [#1396](https://github.com/h5bp/html5-boilerplate/pull/1396)).
-* Update to Google Universal Analytics
-  ([#1347](https://github.com/h5bp/html5-boilerplate/issues/1347)).
-* Update to jQuery 1.10.2.
-* Update to Normalize.css 1.1.3.
+## 1.3.9 (07 April, 2013)
 
-### 4.2.0 (April 8, 2013)
+* Added WAI-ARIA landmark roles to enrich semantics and improve accessibility. [Stacey Cordoni](https://github.com/staceycordoni) [#32](https://github.com/toddmotto/evos/pull/32)
+* Added WAI-ARIA 'role=button' to search form &lt;button&gt;
+* Upgrade search input type from 'type=text' to 'type=search' for better use of HTML5 alongside WAI-ARIA
 
-* Remove Google Analytics protocol check
-  ([#1319](https://github.com/h5bp/html5-boilerplate/pull/1319)).
-* Update to Normalize.css 1.1.1.
-* Update Apache configurations to include the latest changes in the
-  canonical [`.htaccess`](https://github.com/h5bp/server-configs-apache)
-  file.
-* Use a protocol relative URL for the 404 template script.
-* Update to jQuery 1.9.1.
+## 1.3.8 (02 April, 2013)
 
-### 4.1.0 (January 21, 2013)
+* Load Modernizr from CloudFlare CDN (same as Conditionizr)
+* Load only Conditionizr and Modernizr through the &lt;head&gt;, with Conditionizr call too.
+* Load jQuery CDN (Google) in footer, with jQuery CDN fallback (CloudFlare)
+* Separated WordPress script enqueue to load Conditionizr, Modernizr in head: 'function evos_header_scripts()'
+* Hard-coded jQuery and CDN fallback into footer.php above custom theme scripts, more reliable fallback method
+* Load custom theme scripts in footer: 'function evos_footer_scripts()'
+* Loading scripts before closing &lt;/body&gt; tag is best practice and not seen often in WordPress sites
+* Lowercase &lt;!doctype html&gt; in header.php
+* Remove empty line at end of functions.php
 
-* Update to Normalize.css 1.1.0.
-* Update to jQuery 1.9.0.
+## 1.3.7 (01 April, 2013)
 
-### 4.0.3 (January 12, 2013)
+* Added Portuguese (Brazil) language translation file to /languages/ from [Wesllei Henrique](https://github.com/wesllei)
 
-* Use 32x32 favicon.ico
-  ([#1286](https://github.com/h5bp/html5-boilerplate/pull/1286)).
-* Remove named function expression in plugins.js
-  ([#1280](https://github.com/h5bp/html5-boilerplate/pull/1280)).
-* Adjust CSS image-replacement code
-  ([#1239](https://github.com/h5bp/html5-boilerplate/issues/1239)).
-* Update HiDPI example media query
-  ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
+## 1.3.6 (30 March, 2013)
 
-### 4.0.2 (December 9, 2012)
+* Protocol relative jQuery and Conditionizr URLs
+* Protocol relative URLs for all enqueued scripts and styles
+* Added French language translation file to /languages/ from [Kevin Plattret](https://twitter.com/kevinplattret)
+* Fixed search form bug by adding name="s" attribute
+* Neater comments for headings in functions.php (same as style.css)
+* Add date ordered contributors to ReadMe.
 
-* Update placeholder icons.
-* Update to Normalize.css 1.0.2.
-* Update to jQuery 1.8.3.
+## 1.3.5 (26 March, 2013)
 
-### 4.0.1 (October 20, 2012)
+* Update jQuery CDN to use $_SERVER['SERVER_PORT'] to server HTTPS if needed
+* Edit Google Analytics string to cater for SSL/HTTPS (footer.php)
+* Added Spanish language translation file to /languages/ from Carlos Pinar
+* Indent &lt;head&gt; and &lt;body&gt; elements for better code readability
+* Add X-UA-Compatible meta tag to &lt;head&gt; to force Chrome Frame/latest document mode in IE (edge)
+* Format the &lt;head&gt; by grouping similar elements
+* Enhance footer.php indentation
+* Change footer.php fallback text
+* Removed HTML comments from comments.php and changed ID to class
+* Improve Conditionizr formatting in header.php
+* Set Conditionizr scripts/styles to _false_ by default (classes true)
+* Change pagination ID to class for better CSS
+* Improve indentation in 404.php for child element
+* Update screenshot.png
+* Update default HTML5 Blank logo and gravatar
 
-* Further improvements to `console` method stubbing
-  ([#1206](https://github.com/h5bp/html5-boilerplate/issues/1206),
-   [#1229](https://github.com/h5bp/html5-boilerplate/pull/1229)).
-* Update to jQuery 1.8.2.
-* Update to Modernizr 2.6.2.
-* Minor additions to the documentation.
+## 1.3.4 (22 March, 2013)
 
-### 4.0.0 (August 28, 2012)
+* Update Conditionizr to version 2.2.0
+* Replaced &lt;aside&gt; id with a class for better CSS
+* Better naming conventions for search form, more class focused
+* Removed JavaScript onfocus/onblur events in search input
+* Replaced onfocus/onblur events with HTML5 placeholder for 'Search' (this is fine for non-supporting browsers as the search button indicates it's a search input)
+* Search &lt;input&gt; has been replaced to a &lt;button&gt; for more flexibility, allows HTML content
+* Removed font-smoothing from Opera and Mozilla as no longer supported
 
-* Improve the Apache compression configuration
-  ([#1012](https://github.com/h5bp/html5-boilerplate/issues/1012),
-   [#1173](https://github.com/h5bp/html5-boilerplate/issues/1173)).
-* Add a HiDPI example media query
-  ([#1127](https://github.com/h5bp/html5-boilerplate/issues/1127)).
-* Add bundled docs
-  ([#1154](https://github.com/h5bp/html5-boilerplate/issues/1154)).
-* Add MIT license
-  ([#1139](https://github.com/h5bp/html5-boilerplate/issues/1139)).
-* Update to Normalize.css 1.0.1.
-* Separate Normalize.css from the rest of the CSS
-  ([#1160](https://github.com/h5bp/html5-boilerplate/issues/1160)).
-* Improve `console.log` protection
-  ([#1107](https://github.com/h5bp/html5-boilerplate/issues/1107)).
-* Replace hot pink text selection color with a neutral color.
-* Change image replacement technique
-  ([#1149](https://github.com/h5bp/html5-boilerplate/issues/1149)).
-* Code format and consistency changes
-  ([#1112](https://github.com/h5bp/html5-boilerplate/issues/1112)).
-* Rename CSS file and rename JS files and subdirectories.
-* Update to jQuery 1.8
-  ([#1161](https://github.com/h5bp/html5-boilerplate/issues/1161)).
-* Update to Modernizr 2.6.1
-  ([#1086](https://github.com/h5bp/html5-boilerplate/issues/1086)).
-* Remove uncompressed jQuery
-  ([#1153](https://github.com/h5bp/html5-boilerplate/issues/1153)).
-* Remove superfluous inline comments
-  ([#1150](https://github.com/h5bp/html5-boilerplate/issues/1150)).
+## 1.3.3 (03 March, 2013)
 
-### 3.0.2 (February 19, 2012)
+* Hook up Conditionizr to theme Directory using WordPress theme URI hooks
 
-* Update to Modernizr 2.5.3.
+## 1.3.2 (22 February, 2013)
 
-### 3.0.1 (February 08, 2012).
+* Optimise body CSS declaration to shorthand
+* Remove inner wrapper inside header element, wrapper now wraps all content
+* Added header and footer classes to elements to encourage class styling over element declaration (i.e. header {} always use .header {} class etc.)
 
-* Update to Modernizr 2.5.2 (includes html5shiv 3.3).
+## 1.3.1 (13 February, 2013)
 
-### 3.0.0 (February 06, 2012)
+* Restructured CSS file, better architecture
+* Focused CSS document on a more OOCSS approach (part of restructure)
+* Split CSS into; Main, Structure, Pages, Images, Typography, Responsive, Misc, Print
+* Moved away from single-line CSS formatting to multiple-line formatting for clearer code
+* CSS indentation formatting, new lines for shared selectors
+* Update jQuery to version 1.9.1, Google CDN and CloudFlare CDN
+* Update Conditionizr to CDNJS CloudFlare v2.1.1
+* Removed mediaqueries.min.js, do we really need older browsers to be responsive, HTML5Shiv (built-in Modernizr) is enough
+* Updated scripts.js to ride off Modernizr.svg feature detect and remove custom script detect
 
-* Improvements to `.htaccess`.
-* Improve 404 design.
-* Simplify JS folder structure.
-* Change `html` IE class names changed to target ranges rather than
-  specific versions of IE.
-* Update CSS to include latest normalize.css changes and better
-  typographic defaults
-  ([#825](https://github.com/h5bp/html5-boilerplate/issues/825)).
-* Update to Modernizr 2.5 (includes yepnope 1.5 and html5shiv 3.2).
-* Update to jQuery 1.7.1.
-* Revert to async snippet for the Google Analytics script.
-* Remove the ant build script
-  ([#826](https://github.com/h5bp/html5-boilerplate/issues/826)).
-* Remove Respond.js
-  ([#816](https://github.com/h5bp/html5-boilerplate/issues/816)).
-* Remove the `demo/` directory
-  ([#808](https://github.com/h5bp/html5-boilerplate/issues/808)).
-* Remove the `test/` directory
-  ([#808](https://github.com/h5bp/html5-boilerplate/issues/808)).
-* Remove Google Chrome Frame script for IE6 users; replace with links
-  to Chrome Frame and options for alternative browsers.
-* Remove `initial-scale=1` from the viewport `meta`
-  ([#824](https://github.com/h5bp/html5-boilerplate/issues/824)).
-* Remove `defer` from all scripts to avoid legacy IE bugs.
-* Remove explicit Site Speed tracking for Google Analytics. It's now
-  enabled by default.
+## 1.3.0 (09 February, 2013)
 
-### 2.0.0 (August 10, 2011)
+* Remove jquery.min.js 'local' fallback from /js/ folder, simply fallback to another CDN (CloudFlare), see footer.php, saves code and maintenance across all sites
+* Remove Google Analytics and jQuery fallback from functions.php injection, added manually in footer.php
+* Setup Conditionizr to supply an HTML5Shim to Less Than IE9 browsers
+* Updates Conditionizr to v1.2.0, enhanced retina detection and unlimited 'customScript', for polyfill usage (e.g. using respond.js and html5shim together)
+* Added Romanian language translation file to /languages/
 
-* Change starting CSS to be based on normalize.css instead of reset.css
-  ([#500](https://github.com/h5bp/html5-boilerplate/issues/500)).
-* Add Respond.js media query polyfill.
-* Add Google Chrome Frame script prompt for IE6 users.
-* Simplify the `html` conditional comments for modern browsers and add
-  an `oldie` class.
-* Update clearfix to use "micro clearfix".
-* Add placeholder CSS MQs for mobile-first approach.
-* Add `textarea { resize: vertical; }` to only allow vertical resizing.
-* Add `img { max-width: 100%; }` to the print styles; prevents images
-  being truncated.
-* Add Site Speed tracking for Google Analytics.
-* Update to jQuery 1.6.2 (and use minified by default).
-* Update to Modernizr 2.0 Complete, Production minified (includes
-  yepnope, html5shiv, and Respond.js).
-* Use `Modernizr.load()` to load the Google Analytics script.
-* Much faster build process.
-* Add build script options for CSSLint, JSLint, JSHint tools.
-* Build script now compresses all images in subfolders.
-* Build script now versions files by SHA hash.
-* Many `.htaccess` improvements including: disable directory browsing,
-  improved support for all versions of Apache, more robust and extensive
-  HTTP compression rules.
-* Remove `handheld.css` as it has very poor device support.
-* Remove touch-icon `link` elements from the HTML and include improved
-  touch-icon support.
-* Remove the cache-busting query paramaters from files references in
-  the HTML.
-* Remove IE6 PNGFix.
+## 1.2.9 (03 February, 2013)
 
-### 1.0.0 (March 21, 2011)
+* Readded [//conditionizr.com](Conditionizr), the raw JavaScript version 50% faster, previously removed to work on jQuery-free Conditionizr
 
-* Rewrite build script to make it more customizable and flexible.
-* Add a humans.txt.
-* Numerous `.htaccess` improvements (including inline documentation).
-* Move the alternative server configurations to the H5BP server configs
-  repo.
-* Use a protocol-relative url to reference jQuery and prevent mixed
-  content warnings.
-* Optimize the Google Analytics snippet.
-* Use Eric Meyer's recent CSS reset update and the HTML5 Doctor reset.
-* More robust `sub`/`sup` CSS styles.
-* Add keyboard `.focusable` helper class that extends `.visuallyhidden`.
-* Print styles no longer print hash or JavaScript links.
-* Add a print reset for IE's proprietary filters.
-* Remove IE9-specific conditional class on the `html` element.
-* Remove margins from lists within `nav` elements.
-* Remove YUI profiling.
+## 1.2.8 (30 January, 2013)
+
+* Added Google Analytics DNS Prefetch to header.php to reduce [DNS latency](//www.chromium.org/developers/design-documents/dns-prefetching)
+
+## 1.2.7 (23 January, 2013)
+
+* Update to jQuery 1.9.0
+* Removed [Conditionizr](http://conditionizr.com)
+* Remove Apple Touch Icons
+
+## 1.2.6 (24 December, 2012)
+
+* [Conditionizr](http://conditionizr.com) legacy script and style loader added
+	* Conditional statements removed from HTML tag (HTML classes added dynamically with Conditionizr)
+	* Conditional statement for mediaqueries.min.js removed (added dynamically with Conditionizr, included inside scripts.js)
+	* conditionizr.min.js and conditionizr.js enqueued
+	* /css/conditionizr/ added with browser styles
+	* /js/conditionizr/ added with browser scripts
+* Shortened ViewPort meta tag with user scalable enabled
+
+## 1.2.5 (09 December, 2012)
+
+* Added SVG support in scripts.js for SVG graphics
+* Shorten DOM ready function call to shorthand
+* Removed web app capable meta tag, kept viewport
+* CSS3 Media Queries JavaScript polyfill added to header.php
+* Included default .wrapper style for fluid-first responsive approach
+* Upgraded jQuery to 1.8.3
+* Split stylesheets with separate call for Normalize as reset
+* Global Box Sizing and Font-Smoothing on all elements
+
+## 1.2.4 (15 October, 2012)
+
+* Custom Comments callback - wp_list_comments('type=comment&callback=evoscomments'); editable comments now in functions.php
+* Custom default Gravatar now built in, with demo gravatar.jpg inside the 'img' folder, swap it out
+* Changed date format from the_date to the_time('F j, Y')
+* Changed time format from the_time to the_time('g:i a')
+* Changes above show the exact same when parsed, but have been changed due to the way WordPress works, which only shows one 'Date' for posts created on the same day. [More here](http://codex.wordpress.org/Function_Reference/the_date).
+
+## 1.2.3 (13 October, 2012)
+
+* Responsive Thumbnail support, added a function which removes width and height dynamic attributes from thumbnail
+
+## 1.2.2 (09 October, 2012)
+
+* Modified function - jQuery CDN fallback to get_template_directory_uri() instead of bloginfo('template_url')
+* Add Support for Custom Header
+* Tweaked support for Custom Background, added default color and placeholder background image
+
+## 1.2.1 (07 October, 2012)
+
+* Custom callback for wp_nav_menu, now in functions.php with evos_nav(); in header.php
+* JavaScript added to 'scripts.js', hides URL bar after page load on iPhone/iPad, great for responsive projects
+* Meta tag 'apple-mobile-web-app-capable' added to header.php
+* Meta tag 'apple-mobile-web-app-status-bar-style' added to header.php
+
+## 1.2.0 (03 October, 2012)
+
+* Merged pull request from J-Rabe
+* Localisation-support for all theme strings and empty *.pot for further translations
+* German translation added by J-Rabe
+* Functions.php includes new function 'load_theme_textdomain' for language support
+* Loop.php created to handle the Loop core, with get_template_part inclusion for relevant files
+* Loop.php includes conditional result for search results
+* Swapped bloginfo('template_url'); for echo get_template_directory_uri(); on Logo + Favicon
+* home_url instead of bloginfo('home')
+
+## 1.1.2 (02 October, 2012)
+
+* Merged pull request for comments.php code changes
+* Merged pull request to remove 'rel' attribute from categories
+* Filter added to remove autop paragraph function from Excerpts (Manual only)
+* Filter added to allow shortcodes to execute inside Excerpts (Manual only)
+* Filter added to strip autop tags altogether from Excerpts
+
+## 1.1.1 (30 September, 2012)
+
+* Enhanced author template
+* Enhanced 404 page with return home link
+* Semantic HTML enhancements
+* Added 'published by the_author' hooks as a default
+* Suggested include of WordPress Core CSS styles, now added
+
+## 1.1.0 (29 September, 2012)
+
+* Core template files restructure
+* Semantic HTML enhancements
+* Google analytics (optimised) dynamically loaded through functions.php in footer
+* jQuery protocol relative fallback dynamically loaded through functions.php in footer
+* Hardcoded footer.php content (analytics and jquery) removed as it's dynamically loaded now
+* The Loop 'if, while, the' all inline, now inside parent section element
+* Pagination links brought inside section element, outside of The Loop after our article
+* Section elements brought outside The Loop to hold all page content
+* The Loop 'else' content wrapper in article tag for markup/layout consistencies
+* Post ID and Post Class added to article elements
+* Category support for 'the category' title
+* Enhanced Default Template page and Template Demo Page (page.php and template-demo.php)
+* Threaded comments support
+* Few obvious annotations removed
+* Small typo in annotation 'function.php' changed to 'functions.php'
+* Update theme default logo with new branding
+* CSS tweak for default hyperlink color change to match Logo blue
+
+## 1.0.2 (28 September, 2012)
+
+* Update CDN and local jQuery fallbacks from 1.8.1 to 1.8.2
+* Conditional page loads script added to functions.php
+* Added Custom Background support into functions.php
+* Remove WordPress Admin bar by default
+* Remove 'text/css' from enqueued stylesheet
+* Updated screenshot.png logo to new HTML5 Blank branding
+* CSS change, :focus changed to input:focus as FireFox was adding focus styles to any element
+* CSS change, new Chrome updates renders fonts thicker, reduced font-weight on body from 400 to 300
+* CSS change, create non-semantic section below media queries, moved text-selection colors etc
+* CSS change, default font-family for h1-h6 Helvetica Neue with Helvetica/Arial fallbacks (previous Georgia)
+* CSS header theme details updated to new URL
+* Move toddmotto.com/evos/ to new evos.com domain
+* Favicon support for theme directory favicon.ico
+* Apple touch icon support, drag into root folder
+* LICENSE.md and README.md added and fully updated
+
+## 1.0.1 (27 September, 2012)
+
+* Commit CHANGELOG.md
+* Commit README.md
+* Commit of Empty Fonts folder with readme.txt inside (for GitHub detection)
+
+## 1.0.0 (16 September, 2012)
+
+* Initial commit
