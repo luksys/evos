@@ -1,23 +1,47 @@
 <?php
+
+// HTML5 Blank navigation
+function evos_nav(){
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'header-menu',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul>%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+        )
+    );
+}
+
 // Register Evos Navigation
-function register_evos_menu()
-{
+function register_evos_menu(){
     register_nav_menus(array(
         'header-menu' => __('Header Menu', 'evos'),
         'footer-menu' => __('Footer Menu', 'evos'),
     ));
 }
 
+add_action('init', 'register_evos_menu'); // Add HTML5 Blank Menu
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
-function my_wp_nav_menu_args($args = '')
-{
+function my_wp_nav_menu_args($args = ''){
     $args['container'] = false;
     return $args;
 }
+add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
-function add_slug_to_body_class($classes)
-{
+function add_slug_to_body_class($classes){
     global $post;
     if (is_home()) {
         $key = array_search('blog', $classes);
@@ -32,12 +56,12 @@ function add_slug_to_body_class($classes)
 
     return $classes;
 }
+add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 
 
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function html5wp_pagination()
-{
+function html5wp_pagination(){
     global $wp_query;
     $big = 999999999;
     echo paginate_links(array(
@@ -47,22 +71,20 @@ function html5wp_pagination()
         'total' => $wp_query->max_num_pages
     ));
 }
+add_action('init', 'html5wp_pagination'); // Add our HTML5 Pagination
 
 // Custom Excerpts
-function html5wp_index($length) // Create 20 Word Callback for Index page Excerpts, call using html5wp_excerpt('html5wp_index');
-{
+function html5wp_index($length) {
     return 20;
 }
 
 // Create 40 Word Callback for Custom Post Excerpts, call using html5wp_excerpt('html5wp_custom_post');
-function html5wp_custom_post($length)
-{
+function html5wp_custom_post($length){
     return 40;
 }
 
 // Create the Custom Excerpts callback
-function html5wp_excerpt($length_callback = '', $more_callback = '')
-{
+function html5wp_excerpt($length_callback = '', $more_callback = ''){
     global $post;
     if (function_exists($length_callback)) {
         add_filter('excerpt_length', $length_callback);
@@ -78,48 +100,45 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 }
 
 
-
-
 // To be removed before going live
 function remove_admin_bar(){
     return false;
 }
-
+add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
 
 // Remove 'text/css' from our enqueued stylesheet
-function html5_style_remove($tag)
-{
+function html5_style_remove($tag){
     return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
-
+add_filter('style_loader_tag', 'html5_style_remove'); // Remove 'text/css' from enqueued stylesheet
 // Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html )
-{
+function remove_thumbnail_dimensions( $html ){
     $html = preg_replace('/(width|height)=\"\d*\"\s/', "", $html);
     return $html;
 }
+add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
+add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 
 // Custom Gravatar in Settings > Discussion
-function evosgravatar ($avatar_defaults)
-{
+function evosgravatar ($avatar_defaults){
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
     return $avatar_defaults;
 }
+add_filter('avatar_defaults', 'evosgravatar'); // Custom Gravatar in Settings > Discussion
 
 // Threaded Comments
-function enable_threaded_comments()
-{
+function enable_threaded_comments(){
     if (!is_admin()) {
         if (is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
             wp_enqueue_script('comment-reply');
         }
     }
 }
+add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 
 // Custom Comments Callback
-function evoscomments($comment, $args, $depth)
-{
+function evoscomments($comment, $args, $depth){
 	$GLOBALS['comment'] = $comment;
 	extract($args, EXTR_SKIP);
 
@@ -164,8 +183,7 @@ function evoscomments($comment, $args, $depth)
 
 
 // Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
+function create_post_type_html5(){
     register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
     register_taxonomy_for_object_type('post_tag', 'html5-blank');
     register_post_type('html5-blank', // Register Custom Post Type
@@ -201,18 +219,24 @@ function create_post_type_html5()
     ));
 }
 
+add_action('init', 'create_post_type_html5'); // Add our HTML5 Blank Custom Post Type
+
+
 /*------------------------------------*\
 	ShortCode Functions
 \*------------------------------------*/
 
 // Shortcode Demo with Nested Capability
-function html5_shortcode_demo($atts, $content = null)
-{
+function html5_shortcode_demo($atts, $content = null){
     return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
 }
 
 // Shortcode Demo with simple <h2> tag
-function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-{
+// Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
+function html5_shortcode_demo_2($atts, $content = null) {
     return '<h2>' . $content . '</h2>';
 }
+
+// Shortcodes
+add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.
+add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [html5_shortcode_demo_2] in Pages, Posts now.
