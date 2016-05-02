@@ -1,196 +1,70 @@
-<!doctype html>
-<html <?php language_attributes(); ?> class="no-js">
-	<head>
-		<meta charset="<?php bloginfo('charset'); ?>">
-		<title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+<?php
+	/*-----------------------------------------------------------------------------------*/
+	/* This template will be called by all other template files to begin 
+	/* rendering the page and display the header/nav
+	/*-----------------------------------------------------------------------------------*/
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
+<title>
+	<?php bloginfo('name'); // show the blog name, from settings ?> | 
+	<?php is_front_page() ? bloginfo('description') : wp_title(''); // if we're on the home page, show the description, from the site's settings - otherwise, show the title of the post or page ?>
+</title>
 
-		<link href="//www.google-analytics.com" rel="dns-prefetch">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/favicon.ico" rel="shortcut icon">
-        <link href="<?php echo get_template_directory_uri(); ?>/img/icons/touch.png" rel="apple-touch-icon-precomposed">
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+<?php // We are loading our theme directory style.css by queuing scripts in our functions.php file, 
+	// so if you want to load other stylesheets,
+	// I would load them with an @import call in your style.css
+?>
 
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="<?php bloginfo('description'); ?>">
+<?php // Loads HTML5 JavaScript file to add support for HTML5 elements in older IE versions. ?>
+<!--[if lt IE 9]>
+<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<![endif]-->
 
-		<?php wp_head(); ?>
-		<script>
-        // conditionizr.com
-        // configure environment tests
-        conditionizr.config({
-            assets: '<?php echo get_template_directory_uri(); ?>',
-            tests: {}
-        });
-        </script>
+<?php wp_head(); 
+// This fxn allows plugins, and Wordpress itself, to insert themselves/scripts/css/files
+// (right here) into the head of your website. 
+// Removing this fxn call will disable all kinds of plugins and Wordpress default insertions. 
+// Move it if you like, but I would keep it around.
+?>
 
-	</head>
-	<body <?php body_class(); ?>>
+</head>
 
-		<header class="mastheader">
-            <div class="top-section">
-                <div class="top-section-inner c">
-                    <ul class="icons">
-                        <li class="icons-item"><a href="facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
-                        <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-                        <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                        <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="masthead-inner c">
-                <div class="left-block">
-                    <a href="#" class="logo-link"><h1 class="logo-wrapper"><img src="<?php echo get_stylesheet_directory_uri();?>/img/logo-header.png" alt="main logo" class="logo"></h1></a>
+<body 
+	<?php body_class(); 
+	// This will display a class specific to whatever is being loaded by Wordpress
+	// i.e. on a home page, it will return [class="home"]
+	// on a single post, it will return [class="single postid-{ID}"]
+	// and the list goes on. Look it up if you want more.
+	?>
+>
 
-                    
-                    <ul class="menu" id="main-menu">
-                        <li class="menu-item current-menu-item"><a href="">Home</a></li>
-                        <li class="menu-item menu-item-has-children"><a href="#">Services</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page first page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item"><a href="">About</a></li>
-                        <li class="menu-item"><a href="">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="right-block">
-                    <form class="search-form">
-                        <input type="text" class="input-field" placeholder="Type to search...">
-                        <input type="submit" class="submit-button fa fa-search" value="&#xf002;">
-                    </form>
-                </div>
-                <a href="#" class="mobile-menu" id="mobile-menu">
-                  <div class="mobile-menu-inner"></div>  
-                </a>
-            </div>
-       
-  <!--       <div class="slider">
-            <div class="slide">
-                <img src="img/slide.jpg" alt="">
-                <div class="slider-content" slide-image>
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                    </div>
-                    <div class="slider-content-body">
-                        <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                            malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                            et commodo. Nam vitae porttitor est, non consequat urna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-              <div class="slide">
-                <img src="img/slide.jpg" alt="" slide-image>
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                    </div>
-                    <div class="slider-content-body">
-                        <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                            malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                            et commodo. Nam vitae porttitor est, non consequat urna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-              <div class="slide">
-                <img src="img/slide.jpg" alt="" slide-image>
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                    </div>
-                    <div class="slider-content-body">
-                        <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                            malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                            et commodo. Nam vitae porttitor est, non consequat urna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="img/slide.jpg" alt="" slide-image>
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                    </div>
-                    <div class="slider-content-body">
-                        <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                            malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                            et commodo. Nam vitae porttitor est, non consequat urna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="img/slide.jpg" alt="">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                    </div>
-                    <div class="slider-content-body">
-                        <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                            malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                            et commodo. Nam vitae porttitor est, non consequat urna.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+<header id="masthead" class="site-header">
+	<div class="container center">
+	
+		<nav class="site-navigation main-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
+		</nav><!-- .site-navigation .main-navigation -->
+	</div>
+	<div class="center">
 
-      <!--   <div class="slider multiple">
-            <a href="#" class="slide">
-                <img src="img/city2.jpg" alt="" class="slide-image">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit amet</p>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="slide">
-                <img src="img/city2.jpg" alt="" class="slide-image">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit</p>
-                    </div>
-                </div>
-            </a>
-              <a href="#" class="slide">
-                <img src="img/city2.jpg" alt="" class="slide-image">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit ame</p>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="slide">
-                <img src="img/city2.jpg" alt="" class="slide-image">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>Lorem ipsum dolor sit consectetu.</p>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="slide">
-                <img src="img/city2.jpg" alt="" class="slide-image">
-                <div class="slider-content">
-                    <div class="slider-content-header">
-                        <p>adipiscing elit. Vivamus.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
+		<div id="brand">
+			<h1 class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); // Link to the home page ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>" rel="home"><?php bloginfo( 'name' ); // Display the blog name ?></a>
+			</h1>
+			<h4 class="site-description">
+				<?php bloginfo( 'description' ); // Display the blog description, found in General Settings ?>
+			</h4>
+		</div><!-- /brand -->
+		
+		<div class="clear"></div>
+	</div><!--/container -->
+		
+</header><!-- #masthead .site-header -->
 
-        <div class="featured-section">
-            <div class="c outer">
-                <div class="text-body">Do you like this theme?</div>
-                <div class="helper">
-                    <a href="#" class="helper-button hvr-buzz-out">Download it NOW!</a>
-                </div>
-            </div>
-        </div> -->
-    </header>
-
+<main class="main-fluid"><!-- start the page containter -->

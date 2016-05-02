@@ -1,54 +1,68 @@
 <?php
+	/*-----------------------------------------------------------------------------------*/
+	/* This file will be referenced every time a template/page loads on your Wordpress site
+	/* This is the place to define custom fxns and specialty code
+	/*-----------------------------------------------------------------------------------*/
 
-// if (!isset($content_width))
-// {
-//     $content_width = 900;
-// }
+// Define the version so we can easily replace it throughout the theme
+define( 'NAKED_VERSION', 1.0 );
 
-// if (function_exists('add_theme_support'))
-// {
-//     // Add Menu Support
-//     add_theme_support('menus');
+/*-----------------------------------------------------------------------------------*/
+/*  Set the maximum allowed width for any content in the theme
+/*-----------------------------------------------------------------------------------*/
+if ( ! isset( $content_width ) ) $content_width = 900;
 
-//     // Add Thumbnail Theme Support
-//     add_theme_support('post-thumbnails');
-//     add_image_size('large', 700, '', true); // Large Thumbnail
-//     add_image_size('medium', 250, '', true); // Medium Thumbnail
-//     add_image_size('small', 120, '', true); // Small Thumbnail
-//     add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+/*-----------------------------------------------------------------------------------*/
+/* Add Rss feed support to Head section
+/*-----------------------------------------------------------------------------------*/
+add_theme_support( 'automatic-feed-links' );
 
-//     // Enables post and comment RSS feed links to head
-//     add_theme_support('automatic-feed-links');
 
-//     // Localisation Support
-//     load_theme_textdomain('evos', get_template_directory() . '/languages');
-// }
+/*-----------------------------------------------------------------------------------*/
+/* Register main menu for Wordpress use
+/*-----------------------------------------------------------------------------------*/
+register_nav_menus( 
+	array(
+		'primary'	=>	__( 'Primary Menu', 'naked' ), // Register the Primary menu
+		// Copy and paste the line above right here if you want to make another menu, 
+		// just change the 'primary' to another name
+	)
+);
 
-function evos_setup() {
-	//add_theme_support( 'custom-header' );
-	add_theme_support( 'title-tag' );
-	// add_theme_support('automatic-feed-links');
-	// add_theme_support( 'post-thumbnails' );
-	// //Custom Background	
-	// add_theme_support( 'custom-background', array( 'default-color' => 'f7f7f7') );	
-	// //Make theme available for translation
-	// load_theme_textdomain('optimizer', get_template_directory() . '/languages/');  
+/*-----------------------------------------------------------------------------------*/
+/* Activate sidebar for Wordpress use
+/*-----------------------------------------------------------------------------------*/
+function naked_register_sidebars() {
+	register_sidebar(array(				// Start a series of sidebars to register
+		'id' => 'sidebar', 					// Make an ID
+		'name' => 'Sidebar',				// Name it
+		'description' => 'Take it on the side...', // Dumb description for the admin side
+		'before_widget' => '<div>',	// What to display before each widget
+		'after_widget' => '</div>',	// What to display following each widget
+		'before_title' => '<h3 class="side-title">',	// What to display before each widget's title
+		'after_title' => '</h3>',		// What to display following each widget's title
+		'empty_title'=> '',					// What to display in the case of no title defined for a widget
+		// Copy and paste the lines above right here if you want to make another sidebar, 
+		// just change the values of id and name to another word/name
+	));
+} 
+// adding sidebars to Wordpress (these are created in functions.php)
+add_action( 'widgets_init', 'naked_register_sidebars' );
+
+/*-----------------------------------------------------------------------------------*/
+/* Enqueue Styles and Scripts
+/*-----------------------------------------------------------------------------------*/
+
+function naked_scripts()  { 
+
+	// get the theme directory style.css and link to it in the header
+	wp_enqueue_style('style.css', get_stylesheet_directory_uri() . '/style.css');
 	
-	// //Custom Thumbnail Size	
-	// 	add_image_size( 'optimizer_thumb', 400, 270, true ); /*(cropped)*/
-   
-	// //Register Menus
-	// register_nav_menus( array(
-	// 		'primary' => __( 'Header Navigation', 'optimizer' ),
-	// 	) );
-	}
-add_action( 'after_setup_theme', 'evos_setup' );
-
-
-// Evos core constants
-define('EVOS_PARENT_DIR', get_template_directory());  
-
-// Evos functions
-require(EVOS_PARENT_DIR . '/inc/enqueue.php');
-require(EVOS_PARENT_DIR . '/inc/functions.php');
-require(EVOS_PARENT_DIR . '/inc/widgets.php');
+	// add fitvid
+	wp_enqueue_script( 'naked-fitvid', get_template_directory_uri() . '/js/jquery.fitvids.js', array( 'jquery' ), NAKED_VERSION, true );
+	
+	// add theme scripts
+	wp_enqueue_script( 'naked', get_template_directory_uri() . '/js/theme.min.js', array(), NAKED_VERSION, true );
+  
+}
+add_action( 'wp_enqueue_scripts', 'naked_scripts' ); // Register this fxn and allow Wordpress to call it automatcally in the header

@@ -1,67 +1,63 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying any single post.
+ *
+ */
 
-	<main role="main">
-	<!-- section -->
-	<section>
+get_header(); // This fxn gets the header.php file and renders it ?>
+	<div id="primary" class="row-fluid">
+		<div id="content" role="main" class="span8 offset2">
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+			<?php if ( have_posts() ) : 
+			// Do we have any posts in the databse that match our query?
+			?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<?php while ( have_posts() ) : the_post(); 
+				// If we have a post to show, start a loop that will display it
+				?>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
-			<?php endif; ?>
-			<!-- /post thumbnail -->
+					<article class="post">
+					
+						<h1 class="title"><?php the_title(); // Display the title of the post ?></h1>
+						<div class="post-meta">
+							<?php the_time('m.d.Y'); // Display the time it was published ?>
+							<?php // the_author(); Uncomment this and it will display the post author ?>
+						
+						</div><!--/post-meta -->
+						
+						<div class="the-content">
+							<?php the_content(); 
+							// This call the main content of the post, the stuff in the main text box while composing.
+							// This will wrap everything in p tags
+							?>
+							
+							<?php wp_link_pages(); // This will display pagination links, if applicable to the post ?>
+						</div><!-- the-content -->
+						
+						<div class="meta clearfix">
+							<div class="category"><?php echo get_the_category_list(); // Display the categories this post belongs to, as links ?></div>
+							<div class="tags"><?php echo get_the_tag_list( '| &nbsp;', '&nbsp;' ); // Display the tags this post has, as links separated by spaces and pipes ?></div>
+						</div><!-- Meta -->
+						
+					</article>
 
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
+				<?php endwhile; // OK, let's stop the post loop once we've displayed it ?>
+				
+				<?php
+					// If comments are open or we have at least one comment, load up the default comment template provided by Wordpress
+					if ( comments_open() || '0' != get_comments_number() )
+						comments_template( '', true );
+				?>
 
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'evos' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'evos' ), __( '1 Comment', 'evos' ), __( '% Comments', 'evos' )); ?></span>
-			<!-- /post details -->
 
-			<?php the_content(); // Dynamic Content ?>
+			<?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
+				
+				<article class="post error">
+					<h1 class="404">Nothing has been posted like that yet</h1>
+				</article>
 
-			<?php the_tags( __( 'Tags: ', 'evos' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			<?php endif; // OK, I think that takes care of both scenarios (having a post or not having a post to show) ?>
 
-			<p><?php _e( 'Categorised in: ', 'evos' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'evos' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
-
-		</article>
-		<!-- /article -->
-
-	<?php endwhile; ?>
-
-	<?php else: ?>
-
-		<!-- article -->
-		<article>
-
-			<h1><?php _e( 'Sorry, nothing to display.', 'evos' ); ?></h1>
-
-		</article>
-		<!-- /article -->
-
-	<?php endif; ?>
-
-	</section>
-	<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
-
-<?php get_footer(); ?>
+		</div><!-- #content .site-content -->
+	</div><!-- #primary .content-area -->
+<?php get_footer(); // This fxn gets the footer.php file and renders it ?>
