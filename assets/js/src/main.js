@@ -1,16 +1,12 @@
-$( document ).ready(function() {
-	$('.slider').flickity({
-		wrapAround: true,
-		cellAlign: 'left',
-		imagesLoaded: true,
-		pageDots: false,
-		arrowShape: {
-		    x0: 0,
-		    x1: 50, y1: 50,
-		    x2: 90, y2: 50,
-		    x3: 40
-	    }
-	    
+jQuery( document ).ready(function($) {
+
+	$('.slider').owlCarousel({
+		nav: true,
+		dots: false, 
+		items:1,
+		center: true,
+		loop: true,
+		navText: ['<span class="ion-ios-arrow-back"></span>','<span class="ion-ios-arrow-forward"></span>']
 	});
 
 	var scrollTop = $('#scroll-to-top');
@@ -41,4 +37,14 @@ $( document ).ready(function() {
 	   	$(this).toggleClass('submenu-is-active');
 	});
 	
+	$('.search-button').on('click', function(e){
+		e.preventDefault();
+		$('#search-form-overlay').addClass('is-active');
+	});
+
+	$('.close-search').on('click', function(e){
+		e.preventDefault();
+		$('#search-form-overlay').removeClass('is-active');
+	});
+
 });

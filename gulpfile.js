@@ -28,7 +28,7 @@
  * Edit the variables as per your project requirements.
  */
 
-var projectURL           = 'localhost:8080/evos'; // Project URL. Could be something like localhost:8888.
+var projectURL           = 'localhost/evos'; // Project URL. Could be something like localhost:8888.
 
 var styleSRC             = './assets/sass/layout.scss'; // Path to main .scss file.
 var styleDestination     = './assets/css/'; // Path to place the compiled CSS file.

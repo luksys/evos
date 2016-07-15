@@ -18,22 +18,39 @@
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <?php
+            global $evos_options;
+        ?>
         <header class="mastheader">
-            <div class="top-section">
-                <div class="top-section-inner c">
-                    <ul class="icons">
-                        <li class="icons-item"><a href="facebook"><i class="fa fa-facebook"></i></a></li>
-                        <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
-                        <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
-                        <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-                        <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                        <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
+            <?php if( $evos_options['topbar'] )  : ?>
+                <div class="top-section">
+                    <div class="top-section-inner c">
+                        <ul class="icons">
+                            <li class="icons-item"><a href="facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
+                            <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
+                            <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+                            <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                            <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            <?php endif;?>
+
             <div class="masthead-inner c">
-                <div class="left-block">
-                    <a href="#" class="logo-link"><h1 class="logo-wrapper"><img src="img/logo-header.png" alt="main logo" class="logo"></h1></a>
+                <div class="main-header-area">
+                    
+                    <a href="#" class="logo-link">
+                        <h1 class="logo-wrapper">
+                            <?php echo wp_get_attachment_image( $evos_options['header-logo']['id'] );?>
+                        </h1>
+                    </a>
+                    
+                    <a href="#" class="search-button ion-ios-search-strong"></a>
+
+                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
+
+                    <!-- 
                     <ul class="menu" id="main-menu">
                         <li class="menu-item current-menu-item"><a href="">Home</a></li>
                         <li class="menu-item menu-item-has-children"><a href="#">Services</a>
@@ -46,134 +63,41 @@
                         </li>
                         <li class="menu-item"><a href="">About</a></li>
                         <li class="menu-item"><a href="">Contact</a></li>
-                    </ul>
+                    </ul> -->
+                    
                 </div>
-                <div class="right-block">
-                    <form class="search-form">
-                        <input type="text" class="input-field" placeholder="Type to search...">
-                        <input type="submit" class="submit-button fa fa-search" value="&#xf002;">
-                    </form>
-                </div>
-                <a href="#" class="mobile-menu" id="mobile-menu">
+               <!--  <a href="#" class="mobile-menu" id="mobile-menu">
                   <div class="mobile-menu-inner"></div>  
-                </a>
+                </a> -->
             </div>
            
-      <!--       <div class="slider">
-                <div class="slide">
-                    <img src="img/slide.jpg" alt="">
-                    <div class="slider-content" slide-image>
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                        </div>
-                        <div class="slider-content-body">
-                            <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                                malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                                et commodo. Nam vitae porttitor est, non consequat urna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                  <div class="slide">
-                    <img src="img/slide.jpg" alt="" slide-image>
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                        </div>
-                        <div class="slider-content-body">
-                            <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                                malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                                et commodo. Nam vitae porttitor est, non consequat urna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                  <div class="slide">
-                    <img src="img/slide.jpg" alt="" slide-image>
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                        </div>
-                        <div class="slider-content-body">
-                            <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                                malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                                et commodo. Nam vitae porttitor est, non consequat urna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="img/slide.jpg" alt="" slide-image>
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                        </div>
-                        <div class="slider-content-body">
-                            <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                                malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                                et commodo. Nam vitae porttitor est, non consequat urna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <img src="img/slide.jpg" alt="">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus.</p>
-                        </div>
-                        <div class="slider-content-body">
-                            <p>purus a, scelerisque urna. Pellentesque iaculis finibus ante, ut hendrerit libero. Vestibulum orci turpis, 
-                                malesuada eget tortor finibus, elementum pretium orci. Donec et tempus dui. Nullam finibus quis sapien 
-                                et commodo. Nam vitae porttitor est, non consequat urna.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+           <?php if( $evos_options['home-slider'] ) : ?>
+                <?php $slider_classes = ( $evos_options['home-slider-rows'] == 1 )  ? ' multiple' : '';?>
+                <div class="slider<?php echo $slider_classes;?>">
+                    <?php
+                        $args = array(
+                            'category' => $evos_options['home-slider-category']
+                        );
+                        $slides = get_posts( $args );
 
-            <div class="slider multiple">
-                <a href="#" class="slide">
-                    <img src="img/city2.jpg" alt="" class="slide-image">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit amet</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="slide">
-                    <img src="img/city2.jpg" alt="" class="slide-image">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit</p>
-                        </div>
-                    </div>
-                </a>
-                  <a href="#" class="slide">
-                    <img src="img/city2.jpg" alt="" class="slide-image">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit ame</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="slide">
-                    <img src="img/city2.jpg" alt="" class="slide-image">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>Lorem ipsum dolor sit consectetu.</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="slide">
-                    <img src="img/city2.jpg" alt="" class="slide-image">
-                    <div class="slider-content">
-                        <div class="slider-content-header">
-                            <p>adipiscing elit. Vivamus.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                        foreach ( $slides as $post ) : setup_postdata( $post ); ?>
+                            <div class="slide">
+                                <?php if( has_post_thumbnail() ) : ?>
+                                    <?php the_post_thumbnail();?>
+                                <?php endif;?>
+                                <div class="slider-content" slide-image>
+                                    <div class="slider-content-header">
+                                        <?php the_title();?>
+                                    </div>
+                                    <div class="slider-content-body">
+                                       <?php the_excerpt();?>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; 
+                        wp_reset_postdata();?>
+                </div>
+            <?php endif;?>
     
             <div class="featured-section">
                 <div class="c outer">
@@ -183,4 +107,5 @@
                     </div>
                 </div>
             </div>
+            
         </header>

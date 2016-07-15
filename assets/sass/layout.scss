@@ -249,9 +249,13 @@ textarea {
 @import 'partials/navigation';
 @import 'partials/typography';
 @import 'partials/grid';
+@import 'partials/menu';
 
 @import 'vendor/flickity';
-@import 'vendor/font-awesome/font-awesome.scss';
+@import 'vendor/flexslider';
+@import 'vendor/owl.carousel';
+// @import 'vendor/font-awesome/font-awesome.scss';
+@import 'vendor/ionicons/ionicons';
 
 @import 'modules/footer';
 @import 'modules/general';

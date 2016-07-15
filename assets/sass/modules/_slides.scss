@@ -4,23 +4,25 @@
 	position: relative;
     color: #fff;
     font-size: $font-size-alt;
+    padding:0;
+    margin:0;
+
+    &:hover {
+    	.owl-controls {
+    		.owl-prev {
+				transition: left 0.1s ease-in-out;
+				left: 0; 
+			}
+
+			.owl-next {
+				transition: right 0.1s ease-in-out;
+				right: 0;  
+			}
+    	}
+    }
 
     &.multiple {
     	.slide {
-    		width: 25%;
-
-    		@include until($desktop){
-    			width: 33.333%
-    		}
-
-    		@include until($tablet){
-    			width: 50%;
-    		}
-
-    		@include until($mobile-large){
-    			width: 100%;
-    		}
-
     		.slide-image {
     			transition: all 0.2s ease-in-out;
     		}
@@ -47,13 +49,13 @@
     	}
     }
 
-	.slide {
+	.owl-item {
 		display: inline-block;
 		width: 100%;
 		color: #fff;
 		overflow: hidden;
 
-		&.is-selected {
+		&.active {
 			.slider-content{
 				.slider-content-header{
 					top:0px;
@@ -122,5 +124,29 @@
 		@include until($tablet){
 	    	display:none;
 	    }
+	}
+}
+
+.owl-controls {
+  	span {
+		padding: 10px 12px;
+	    background: rgba(0,0,0,0.3);
+	    font-size: 46px;
+	    color: rgba(255,255,255,1);
+	}
+	.owl-prev {
+		position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    transition: left 0.1s ease-in-out;
+	    left: -42px;
+	}
+
+	.owl-next {
+		position: absolute;
+	    top: 50%;
+	    transform: translateY(-50%);
+	    transition: left 0.1s ease-in-out;
+	    right: -42px;
 	}
 }
