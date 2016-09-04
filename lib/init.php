@@ -5,6 +5,7 @@ function evos_setup() {
 	// Evos textdomain
 	load_theme_textdomain( 'twentysixteen', get_template_directory() . '/languages' );
 	add_theme_support( 'title-tag' );
+	add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 
 	/*
 	 * Enable support for Post Thumbnails on posts and pages.

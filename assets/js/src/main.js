@@ -1,12 +1,13 @@
 jQuery( document ).ready(function($) {
 
-	$('.slider').owlCarousel({
-		nav: true,
-		dots: false, 
-		items:1,
-		center: true,
-		loop: true,
-		navText: ['<span class="ion-ios-arrow-back"></span>','<span class="ion-ios-arrow-forward"></span>']
+	$('.slider').flickity({
+		
+		// nav: true,
+		// dots: false, 
+		// items:1,
+		// center: true,
+		// loop: true,
+		// navText: ['<span class="ion-ios-arrow-back"></span>','<span class="ion-ios-arrow-forward"></span>']
 	});
 
 	var scrollTop = $('#scroll-to-top');

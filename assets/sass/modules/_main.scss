@@ -63,6 +63,7 @@
 			font-size: 14px;
 			background: #fff;
 			padding: 20px;
+            text-align: center;
 
             @include until($small-desktop){
                 padding:20px 0;
@@ -111,11 +112,11 @@
 				overflow: hidden;
 			     margin-bottom: 5px;
 				&:hover {
-					.article-image {
+					img {
 						transform: scale(1.1);
 					}
 				}
-				.article-image {
+				img {
 					display:block;
 					max-width: 100%;
 					transition: transform 0.2s ease-out;

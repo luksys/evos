@@ -40,7 +40,7 @@
             <div class="masthead-inner c">
                 <div class="main-header-area">
                     
-                    <a href="#" class="logo-link">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
                         <h1 class="logo-wrapper">
                             <?php echo wp_get_attachment_image( $evos_options['header-logo']['id'] );?>
                         </h1>
@@ -49,21 +49,6 @@
                     <a href="#" class="search-button ion-ios-search-strong"></a>
 
                     <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
-
-                    <!-- 
-                    <ul class="menu" id="main-menu">
-                        <li class="menu-item current-menu-item"><a href="">Home</a></li>
-                        <li class="menu-item menu-item-has-children"><a href="#">Services</a>
-                            <ul class="sub-menu">
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page first page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                                <li class="menu-item"><a href=""><span class="sub-menu-item">Sub page</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-item"><a href="">About</a></li>
-                        <li class="menu-item"><a href="">Contact</a></li>
-                    </ul> -->
                     
                 </div>
                <!--  <a href="#" class="mobile-menu" id="mobile-menu">
@@ -108,4 +93,9 @@
                 </div>
             </div>
             
+            <h1><?php the_title();?></h1>
+
         </header>
+
+        <main class="main">
+            <div class="c">
