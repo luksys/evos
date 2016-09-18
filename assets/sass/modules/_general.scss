@@ -80,10 +80,35 @@ img {
 
 	.close-search {
 		position: absolute;
-	    right: 40px;
-	    top: 40px;
+	    right: 30px;
+    	top: 30px;
+    	width: 30px;
+    	height: 30px;
 	    color: #fff;
 	    font-size: 40px;
+
+	    &:before {
+	    	content: '';
+			position: absolute;
+			bottom: 15px;
+    		left: 0;
+			width: 30px;
+			height: 2px;
+			background: #fff;
+			transform: rotateZ(45deg);
+	    }
+
+
+	    &:after {
+			content: '';
+			position: absolute;
+			bottom: 15px;
+    		left: 0;
+			width: 30px;
+			height: 2px;
+			background: #fff;
+			transform: rotateZ(-45deg);
+	    }
 	}
 
 	.form-inner {
@@ -108,13 +133,13 @@ img {
 		}
 
 		.submit-button {
-		    padding: 3px 7px;
+		    width: 35px;
+		    height: 35px;
+		    font-size: 24px;
 		    margin: 8px auto 0 auto;
 		    display: block;
 		    float: right;
 		    border: none;
-		    font-family: $icon-family-base;
-		    font-size: 25px;
 		}
 	}
 
@@ -122,8 +147,4 @@ img {
 		opacity:1;
 		visibility: visible;
 	}
-}
-
-[class*='ion-'] {
- line-height: 1;
 }

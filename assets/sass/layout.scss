@@ -242,9 +242,10 @@ textarea {
   box-sizing: border-box;
 }
 
-@import 'partials/mixins';
 @import 'partials/variables';
+@import 'partials/mixins';
 @import 'partials/fonts';
+
 @import 'partials/forms';
 @import 'partials/navigation';
 @import 'partials/typography';
@@ -253,9 +254,7 @@ textarea {
 
 @import 'vendor/flickity';
 @import 'vendor/flexslider';
-// @import 'vendor/owl.carousel';
-// @import 'vendor/font-awesome/font-awesome.scss';
-@import 'vendor/ionicons/ionicons';
+@import 'vendor/font-awesome.scss';
 
 @import 'modules/footer';
 @import 'modules/general';
@@ -264,6 +263,7 @@ textarea {
 @import 'modules/sidebars';
 @import 'modules/slides';
 @import 'modules/icons';
+@import 'modules/widgets';
 
 
 body {

@@ -326,12 +326,6 @@
                 'options'  => $posts_categories,
                 'default'  => '2'
             ),
-             array(
-                'id'       => 'home-slider-rows',
-                'title'    => __( 'Multiple rows slider?', 'redux-framework-demo' ),
-                'type' => 'switch',
-                'default'  => '0',
-            ),
         )
     ) );
 

@@ -2,12 +2,14 @@
 	list-style-type: none;
     padding: 0;
     margin: 0;
+    font-size: 18px;
 	.icons-item {
 		padding: 0 10px;
 		display: inline-block;
 		vertical-align: middle;
 		a {
 			color: $brand-color-dark;
+			border-bottom: 0;
 			&:hover {
 				.fa {
 					color: $brand-color;

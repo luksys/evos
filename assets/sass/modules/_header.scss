@@ -122,6 +122,7 @@
 	}
 	.main-header-area {
 		@extend %clear;
+		padding: 10px 0;
 		.logo-link {
 			float: left;
 		}
@@ -132,10 +133,10 @@
 			font-size: inherit;
 		}
 		.menu-main-menu-container {
-			margin-left: 40px;
+			margin: 8px 0 0 40px;
 			position: relative;
 			z-index: 2;
-			float: left;
+			float: right;
 			@include until($small-desktop){
 			  	display:none;
 			  	margin: 20px 0 0 0;
@@ -146,9 +147,14 @@
 			text-decoration: none;
 			color: $brand-color-dark;
 			float: right;
-    		margin: 24px 0 0 0;
-    		font-size: 23px;
+    		margin: 32px 0 0 20px;
+    		font-size: 17px;
     		line-height: 1;
+
+   			&:before {
+   				content: "\f002";
+   				@include font-icon();
+   			}
 		}
 
 	}

@@ -15,14 +15,21 @@
 }
 
 @mixin font-icon {
-	line-height:1;
-	font-style: normal !important;
-	font-weight: normal !important;
-	font-variant: normal !important;
-	text-transform: none !important;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-family: $icon-family-base;
+  font-family: $icon-family-base;
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  margin-left: .2em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;	
 }
 
 @mixin animate($property,$time,$animateType){
@@ -32,3 +39,7 @@
     -ms-transition: $property $time $animateType;
         transition: $property $time $animateType;
 }
+
+.icon-search:before { content: '\e800'; } /* '' */
+.icon-tag:before { content: '\e801'; } /* '' */
+.icon-folder-open-empty:before { content: '\f115'; } /* '' */

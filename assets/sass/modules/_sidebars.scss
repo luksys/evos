@@ -37,26 +37,4 @@
     		background: $brand-color;
     	}
     }
-
-	.popular-categories {
-		.single-popular-category {
-			margin-bottom: 15px;
-			a {
-				@extend %clear;
-    			.count {
-    				float:right;
-    			}
-			}
-		}
-	}
-
-	.icons {
-		.icons-item {
-			padding: 0;
-			a {
-				font-size: 20px;
-   				margin-right: 15px;
-			}
-		}
-	}
 }

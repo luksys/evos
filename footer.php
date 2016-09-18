@@ -80,10 +80,10 @@
 		</footer>
 		<?php wp_footer(); ?>
 		<form class="search-form-overlay" id="search-form-overlay">
-			<a href="#" class="close-search ion-close-round"></a>
+			<a href="#" class="close-search"></a>
 			<div class="form-inner">
 				<input type="text" class="input-field" placeholder="Type to search...">
-            	<input type="submit" class="submit-button" value="&#xf2f5;">
+            	<input type="submit" class="submit-button" value="&#xe800;">
 			</div>
         </form>
 

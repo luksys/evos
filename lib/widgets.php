@@ -29,25 +29,27 @@ class evos_social_widget extends WP_Widget {
     // This is where the action happens
     public function widget( $args, $instance ) {
         echo $args['before_widget'];
-        if ( ! empty( $title ) )
-        echo $args['before_title'] . $title . $args['after_title'];
+       
+        ?>
 
-        // This is where you run the code and display the output
-        echo __( 'Hello, World!', 'evos' );
+        <ul class="icons">
+            <li class="icons-item"><a href="facebook"><i class="fa fa-facebook"></i></a></li>
+            <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
+            <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
+            <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
+            <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
+            <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
+        </ul>
+
+        <?php
+
         echo $args['after_widget'];
-
-        // <div class="socials">
-        //     <ul class="icons">
-        //         <li class="icons-item"><a href="facebook"><span class="share-text">share on</span> <i class="fa fa-facebook"></i><i class="fa fa-plus"></i></a></li>
-        //         <li class="icons-item"><a href="twitter"><span class="share-text">share on</span> <i class="fa fa-twitter"></i><i class="fa fa-plus"></i></a></li>
-        //         <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i><i class="fa fa-plus"></i></a></li>
-        //         <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i><i class="fa fa-plus"></i></a></li>
-        //         <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i><i class="fa fa-plus"></i></a></li>
-        //     </ul>
-        // </div>
+        ?>
+       
+        <?php
     }
             
-    // Widget Backend 
+    // Widget Backend
     public function form( $instance ) {
         $title      = isset($instance[ 'title' ]) ? $instance[ 'title' ] : '';
         $facebook   = isset($instance[ 'facebook' ]) ? $instance[ 'facebook' ] : '';

@@ -51,6 +51,7 @@
 		overflow: hidden;
 		float: left;
     	width: calc(100% - 340px);
+        padding: 30px 0;
     	@extend %clear;
         .grid {
             margin: 0;
@@ -63,6 +64,7 @@
 			font-size: 14px;
 			background: #fff;
 			padding: 20px;
+            margin-bottom: 20px;
             text-align: center;
 
             @include until($small-desktop){
@@ -124,7 +126,7 @@
 			}
 
             .article-excerpt {
-                margin-top: 15px;
+                margin: 25px 0;
             }
 
             .article-categories {

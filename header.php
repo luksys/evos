@@ -37,36 +37,41 @@
                 </div>
             <?php endif;?>
 
-            <div class="masthead-inner c">
+            <div class="masthead-inner">
+        
                 <div class="main-header-area">
-                    
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
-                        <h1 class="logo-wrapper">
-                            <?php echo wp_get_attachment_image( $evos_options['header-logo']['id'] );?>
-                        </h1>
-                    </a>
-                    
-                    <a href="#" class="search-button ion-ios-search-strong"></a>
 
-                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
-                    
+                    <div class="c">
+                           
+                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
+                            <h1 class="logo-wrapper">
+                                <?php echo wp_get_attachment_image( $evos_options['header-logo']['id'] );?>
+                            </h1>
+                        </a>
+                        
+                        <a href="#" class="search-button"></a>
+
+                        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
+                        
+                    </div>
+                 
                 </div>
                <!--  <a href="#" class="mobile-menu" id="mobile-menu">
                   <div class="mobile-menu-inner"></div>  
                 </a> -->
             </div>
            
-           <?php if( $evos_options['home-slider'] ) : ?>
-                <?php $slider_classes = ( $evos_options['home-slider-rows'] == 1 )  ? ' multiple' : '';?>
-                <div class="slider<?php echo $slider_classes;?>">
+           <?php if( $evos_options['home-slider'] && is_front_page() ) : ?>
+                <div class="slider">
                     <?php
                         $args = array(
-                            'category' => $evos_options['home-slider-category']
+                            'category'          => $evos_options['home-slider-category'],
+                            'posts_per_page'    => -1
                         );
                         $slides = get_posts( $args );
 
                         foreach ( $slides as $post ) : setup_postdata( $post ); ?>
-                            <div class="slide">
+                            <a class="slide" href="<?php the_permalink();?>">
                                 <?php if( has_post_thumbnail() ) : ?>
                                     <?php the_post_thumbnail();?>
                                 <?php endif;?>
@@ -78,12 +83,13 @@
                                        <?php the_excerpt();?>
                                     </div>
                                 </div>
-                            </div>
+                            </a>
                         <?php endforeach; 
                         wp_reset_postdata();?>
                 </div>
             <?php endif;?>
-    
+            
+            <?php /*
             <div class="featured-section">
                 <div class="c outer">
                     <div class="text-body">Do you like this theme?</div>
@@ -92,8 +98,10 @@
                     </div>
                 </div>
             </div>
-            
-            <h1><?php the_title();?></h1>
+            */?>
+            <?php if( !is_front_page() && !is_home() ) : ?>
+                <h1><?php echo evos_get_title();?></h1>
+            <?php endif;?>
 
         </header>
 
