@@ -39,12 +39,10 @@
 			}
 		}
 	}
-
-	.tags-wrapper {
-		margin-left: -5px;
-
-		.tag {
-			margin-left: 5px;
+	
+	.widget-container {
+		.widget-title, a {
+			color: inherit;
 		}
 	}
 
@@ -53,17 +51,18 @@
 		.c {
 			@extend %clear;
 			
-			.menu {
+			.menu-footer-bottom-menu {
 				margin-top: 3px;
 				float: left;
+			}	
+			
+			.menu {
 				.menu-item {
-					margin-right: 14px;
-					padding-left:0;
 					a {
 						color: #fff;
 						font-size: 12px;
 						display: inline-block;
-						padding-left: 0;
+						padding: 0;
 
 						&:hover {
 							text-decoration: underline;
@@ -75,6 +74,7 @@
 			.copyright {
 				float: right;
 				padding: 6px 0;
+				margin-top: 18px;
 				font-size: 12px;
 				p {
 					margin:0;

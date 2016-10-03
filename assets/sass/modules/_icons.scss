@@ -12,6 +12,7 @@
 			border-bottom: 0;
 			&:hover {
 				.fa {
+					transition: color 0.2s ease;
 					color: $brand-color;
 				}
 			}

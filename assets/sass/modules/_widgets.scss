@@ -54,4 +54,56 @@
 		    padding: 4px;
 		}
 	}
+
+	&.widget_search {
+		.search-field {
+			padding: 4px;
+			display: inline-block;
+    		vertical-align: middle;
+		}
+
+		.search-submit {
+			padding: 8px 14px;
+			text-transform: uppercase;
+		    font-size: 14px;
+		    line-height: 1;
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+
+		.screen-reader-text {
+		    display: block;
+			margin-bottom: 5px;
+		}
+	}
+
+	&.widget_tag_cloud {
+		margin-left: -5px;
+		
+		.tagcloud {
+			a {
+				margin-left: 5px;
+				text-decoration:none;
+				display: inline-block;
+				background: #afd137;
+				color: #fff;
+				border-radius: 3px;
+				line-height: 1;
+				margin: 5px 5px 5px 0;
+				padding: 6px 11px 6px 7px;
+				font-size: 16px;
+				font-family: $font-family-base;
+				transition: background-color 0.3s ease-out;
+
+				&:hover {
+					background: #000;
+				}
+
+				&:before {
+					font: normal normal normal 14px / 1 FontAwesome;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
 }
