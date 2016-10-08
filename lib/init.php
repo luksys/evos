@@ -1,4 +1,8 @@
 <?php
+
+global $evos_layout_options;
+$evos_layout_options = array( 'no-sidebar' => 'No Sidebar', 'sidebar-left' => 'Left Sidebar', 'sidebar-right' => 'Right Sidebar', 'full-width' => 'Full Width' );
+
 if ( ! function_exists( 'evos_setup' ) ) :
 
 function evos_setup() {
@@ -32,7 +36,6 @@ function evos_setup() {
 		'gallery',
 		'caption',
 	) );
-
 }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'evos_setup' );

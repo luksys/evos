@@ -99,11 +99,7 @@
                 </div>
             </div>
             */?>
-            <?php if( !is_front_page() && !is_home() ) : ?>
-                <h1><?php echo evos_get_title();?></h1>
-            <?php endif;?>
 
         </header>
 
-        <main class="main">
-            <div class="c">
+        <main class="main c">

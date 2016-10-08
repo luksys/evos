@@ -1,5 +1,4 @@
 <?php
-
     define( 'OPTIONS_PATH', get_template_directory_uri() . '/themeoptions/options/' );
 
     /**
@@ -329,4 +328,22 @@
         )
     ) );
 
+    global $evos_layout_options;
 
+    // Global options
+    Redux::setSection( $opt_name, array(
+        'title'            => __( 'Global', 'redux-framework-demo' ),
+        'id'               => 'global_options',
+        'desc'             => __( 'Global theme options', 'redux-framework-demo' ),
+        'customizer_width' => '500px',
+        'icon'             => 'el el-home',
+        'fields'            => array(
+            array(
+                'id'       => 'evos_layout_option',
+                'type'     => 'select',
+                'title'    => __( 'Select default website layout:', 'redux-framework-demo' ),
+                'options'  => $evos_layout_options,
+                'default'  => 'sidebar-right'
+            ),
+        )
+    ) );

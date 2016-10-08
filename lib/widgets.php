@@ -53,6 +53,7 @@ add_action( 'widgets_init', 'evos_widgets_init' );
 class evos_social_widget extends WP_Widget {
 
     private $socials = array('facebook', 'twitter', 'instagram', 'pinterest', 'linkedin', 'youtube');
+    private $link_target = array( '_blank' => 'New Tab' );
 
     function __construct() {
         parent::__construct(
@@ -63,27 +64,19 @@ class evos_social_widget extends WP_Widget {
     }
 
     // Creating widget front-end
-    // This is where the action happens
     public function widget( $args, $instance ) {
         echo $args['before_widget'];
         ?>
+        <h3 class="widget-title"><?php echo $instance['title'];?></h3>
 
         <ul class="icons">
             <?php
                 foreach ($this->socials as $key => $social_index) :
-                    if( empty($instance[$social_index]) )
-                        return;
-
-                        sprintf( '<li class="icons-item"><a href="%s"><i class="fa fa-facebook"></i></a></li>', $instance[$social_index] );
+                    if( !empty($instance[$social_index]) )
+                        printf( '<li class="icons-item"><a href="%s" target="%s"><i class="fa fa-facebook"></i></a></li>', $instance[$social_index], $instance['link_target'] );
                 endforeach;
             ?>
-            <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
-            <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
-            <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-            <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
-            <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
         </ul>
-
         <?php echo $args['after_widget'];?>
 
         <?php
@@ -92,6 +85,7 @@ class evos_social_widget extends WP_Widget {
     // Widget Backend
     public function form( $instance ) {
         $title = isset($instance[ 'title' ]) ? $instance[ 'title' ] : '';
+        $link_target = isset($instance[ 'link_target' ]) ? $instance[ 'link_target' ] : '';
         ?>
 
         <p>
@@ -100,26 +94,51 @@ class evos_social_widget extends WP_Widget {
         </p>
 
         <?php
-        
+        /**
+        * Social icons fields
+        */
         foreach ($this->socials as $key => $social_index) :
             $social_value  = isset($instance[ $social_index ]) ? $instance[ $social_index ] : '';
             ?>
+            <p>
                 <label for="<?php echo $social_index;?>"><?php _e( "{$social_index}:" ); ?></label> 
-                <input class="widefat" id="<?php echo $social_index;?>" name="<?php echo $social_index;?>" type="text" value="<?php echo esc_attr( $social_value ); ?>" />
+                <input class="widefat" id="<?php echo $social_index;?>" name="<?php echo $this->get_field_name( $social_index );?>" type="text" value="<?php echo esc_attr( $social_value ); ?>" />
+            </p>
             <?php
         endforeach;
+        ?>
+
+        <?php
+        /**
+        * Link target options
+        */
+        ?>
+        <select name="<?php echo $this->get_field_name( 'link_target' );?>">
+            <?php if( $instance[ 'link_target' ] === '_self' || empty($instance[ 'link_target' ]) ) : ?>
+                <option value="_self" selected="selected">Same page</option>
+            <?php else : ?>
+                 <option value="_self">Same page</option>
+            <?php endif;?>
+            
+            <?php 
+                foreach ($this->link_target as $key => $value) :
+                    printf( '<option value="%s" %s>%s</option>', $key, ($key === $instance[ 'link_target' ]) ? 'selected="selected"' : '', $value );
+                endforeach; 
+            ?>
+        </select>
+
+        <?php
     }
         
     // Updating widget replacing old instances with new
     public function update( $new_instance, $old_instance ) {
         $instance = array();
         $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+        $instance['link_target'] = ( ! empty( $new_instance['link_target'] ) ) ? strip_tags( $new_instance['link_target'] ) : '';
 
-        $new_instance['facebook'] = ( ! empty( $new_instance['facebook'] ) ) ? strip_tags( $new_instance['facebook'] ) : '';
-
-        // foreach ($this->socials as $key => $social_index) :
-        //     $instance[$social_index] = ( ! empty( $new_instance[$social_index] ) ) ? strip_tags( $new_instance[$social_index] ) : '';
-        // endforeach;
+        foreach ($this->socials as $key => $social_index) :
+            $instance[$social_index] = ( ! empty( $new_instance[$social_index] ) ) ? strip_tags( $new_instance[$social_index] ) : '';
+        endforeach;
 
         return $instance;
     }

@@ -264,7 +264,8 @@ textarea {
 @import 'modules/slides';
 @import 'modules/icons';
 @import 'modules/widgets';
-
+@import 'modules/layout';
+@import 'modules/item';
 
 body {
 	font: $font-size-base $font-family-base;
@@ -274,7 +275,7 @@ body {
     margin:0; 
 }
 %clear:after {
-    content: "."; 
+    content: ""; 
     visibility: hidden; 
     display: block; 
     height: 0; 

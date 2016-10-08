@@ -1,0 +1,31 @@
+.sidebar-right {
+	.main-content {
+		float: left;
+	}
+	.sidebar {
+		float: right;
+		padding-left: 60px;
+	}
+}
+
+.sidebar-left {
+	.main-content {
+		float: right;
+	}
+	.sidebar {
+		float: left;
+		padding-right: 60px;
+	}
+}
+
+.no-sidebar {
+	.main-content {
+		margin: 0 auto;
+	}
+}
+
+.full-width {
+	.main-content {
+		width: auto;
+	}
+}

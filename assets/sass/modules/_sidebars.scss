@@ -1,11 +1,9 @@
 .sidebar {
-	float: right;
-    width: 320px;
-    padding: 20px;
-    margin-left: 20px;
+    width: 33.33%;
     background: #fff;
     font-size: $font-size-alt;
-
+    padding-top: 40px;
+    
     @include until($small-desktop){
 		float: none;
     	width: auto;

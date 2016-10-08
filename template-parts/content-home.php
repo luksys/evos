@@ -1,4 +1,4 @@
-<section class="articles-wrapper">
+<section class="main-content">
 
 <?php 
 if ( have_posts() ) :
@@ -7,6 +7,14 @@ if ( have_posts() ) :
 		get_template_part('item');
 	endwhile;
 endif;
+
+
+the_posts_pagination( array(
+	'mid_size'  => 2,
+	'prev_text' => __( 'Previous', 'textdomain' ),
+	'next_text' => __( 'Next', 'textdomain' ),
+) );
+
 ?>
            
 <!-- 

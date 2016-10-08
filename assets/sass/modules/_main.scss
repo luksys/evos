@@ -1,12 +1,10 @@
 .main {
+    @extend %clear;
 	padding: 20px 0;
 	.main-content {
 		overflow: hidden;
-		float: left;
-    	width: calc(100% - 340px);
+    	width: 66.66%;
     	background: #fff;
-    	padding: 20px;
-    	@extend %clear;
     	@include until($small-desktop){
     		float: none;
     		width: 100%;
@@ -47,6 +45,7 @@
 			display: block;
 		}
 	}
+
 	.articles-wrapper {
 		overflow: hidden;
 		float: left;
@@ -60,104 +59,7 @@
     		float: none;
     		width: 100%;
     	}
-		.article {
-			font-size: 14px;
-			background: #fff;
-			padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-
-            @include until($small-desktop){
-                padding:20px 0;
-            }
-
-			&.featured {
-				text-align: center;
-
-				.article-excerpt {
-					text-align: left;
-				}
-
-                .article-image-wrapper {
-                    &:hover {
-                        .article-image {
-                            transform: scale(1.05);
-                        }
-                    }
-                }
-			}
-			
-			.title {
-				transition: color 0.2s ease-out;
-				&:hover {
-					color: #afd137;
-				}
-				&:after {
-					content: '';
-    				width: 25px;
-    				height: 1px;
-    				background: $brand-color;
-    				display: block;
-    				margin: 9px auto 0 auto;
-				}
-				
-				a {
-					display: block;
-					text-align: center;
-					text-decoration: none;
-				}
-			}
-
-
-			.article-image-wrapper {
-				display: block;
-				overflow: hidden;
-			     margin-bottom: 5px;
-				&:hover {
-					img {
-						transform: scale(1.1);
-					}
-				}
-				img {
-					display:block;
-					max-width: 100%;
-					transition: transform 0.2s ease-out;
-				}
-			}
-
-            .article-excerpt {
-                margin: 25px 0;
-            }
-
-            .article-categories {
-                .article-categories-wrapper {
-                    margin:0;
-                    padding:0;
-                    list-style-type: none;
-                    text-align: left;
-
-                    .article-category {
-                        display: inline-block;
-                        a {
-                            color: #9C9C9C;
-                            text-decoration: none;
-                            font-size: 11px;
-                            letter-spacing: 1px;
-                            text-transform: uppercase;
-
-                            &:hover {
-                                text-decoration: underline;
-                            }
-                        }
-                    }
-                }
-            }
-		}
-
-		.mult-article-wrapper {
-			padding: 20px 0;
-		}
-	}	
+	}
 }
 
 .next-link {
