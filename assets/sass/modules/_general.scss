@@ -125,3 +125,14 @@ img {
 		visibility: visible;
 	}
 }
+
+.separator {
+	width: 60px;
+	height: 2px;
+	background-color: $brand-color;
+	display: inline-block;
+}
+
+.main-title {
+	margin-top: 50px;
+}

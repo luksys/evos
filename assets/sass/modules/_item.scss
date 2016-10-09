@@ -1,7 +1,6 @@
 .item {
 	font-size: 14px;
 	background: #fff;
-	padding: 20px;
     margin-bottom: 20px;
     text-align: center;
 
@@ -43,6 +42,7 @@
 			display:block;
 			max-width: 100%;
 			transition: transform 0.2s ease-out;
+			margin: 0;
 		}
 	}
 

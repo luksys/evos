@@ -1,3 +1,4 @@
+	</div>
 	</main>
 		<footer class="mastfooter">
 		    <div class="c">

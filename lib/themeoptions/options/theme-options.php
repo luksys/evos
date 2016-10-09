@@ -328,7 +328,7 @@
         )
     ) );
 
-    global $evos_layout_options;
+    global $evos_extra_options;
 
     // Global options
     Redux::setSection( $opt_name, array(
@@ -342,8 +342,14 @@
                 'id'       => 'evos_layout_option',
                 'type'     => 'select',
                 'title'    => __( 'Select default website layout:', 'redux-framework-demo' ),
-                'options'  => $evos_layout_options,
+                'options'  => $evos_extra_options['evos_layout_options'],
                 'default'  => 'sidebar-right'
+            ),
+            array(
+                'id'       => 'evos_top_banner',
+                'title'    => __( 'Set to display banner on every page by default?', 'redux-framework-demo' ),
+                'type' => 'switch',
+                'default'  => '0',
             ),
         )
     ) );

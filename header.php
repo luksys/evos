@@ -19,7 +19,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <?php
-            global $evos_options;
+            global $evos_options, $evos_extra_options;
         ?>
         <header class="mastheader">
             <?php if( $evos_options['topbar'] )  : ?>
@@ -99,7 +99,11 @@
                 </div>
             </div>
             */?>
-
+            <?php evos_top_section_settings();?>
         </header>
 
-        <main class="main c">
+        <main class="main">
+            <div class="c">
+            <?php if( $evos_extra_options['main_title'] ) : ?>
+                <?php echo evos_get_title();?>
+            <?php endif;?>

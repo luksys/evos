@@ -1,7 +1,7 @@
 <?php
-
-global $evos_layout_options;
-$evos_layout_options = array( 'no-sidebar' => 'No Sidebar', 'sidebar-left' => 'Left Sidebar', 'sidebar-right' => 'Right Sidebar', 'full-width' => 'Full Width' );
+global $evos_extra_options;
+$evos_extra_options['main_title'] = true;
+$evos_extra_options['evos_layout_options'] = array( 'no-sidebar' => 'No Sidebar', 'sidebar-left' => 'Left Sidebar', 'sidebar-right' => 'Right Sidebar', 'full-width' => 'Full Width' );
 
 if ( ! function_exists( 'evos_setup' ) ) :
 
@@ -36,6 +36,9 @@ function evos_setup() {
 		'gallery',
 		'caption',
 	) );
+
+	// Add image sizes
+	add_image_size( 'size-large', 1920, 800, true );
 }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'evos_setup' );
