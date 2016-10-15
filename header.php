@@ -19,10 +19,10 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <?php
-            global $evos_options, $evos_extra_options;
+            global $evos_extra_options;
         ?>
         <header class="mastheader">
-            <?php if( $evos_options['topbar'] )  : ?>
+            <?php if( get_theme_mod('evos_display_top_bar') )  : ?>
                 <div class="top-section">
                     <div class="top-section-inner c">
                         <ul class="icons">
@@ -42,12 +42,13 @@
                 <div class="main-header-area">
 
                     <div class="c">
-                           
-                        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
                             <h1 class="logo-wrapper">
-                                <?php echo wp_get_attachment_image( $evos_options['header-logo']['id'] );?>
+                                <?php if( !empty(get_theme_mod('evos_logo')) ) : ?>
+                                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
+                                        <img src="<?php echo esc_url(get_theme_mod('evos_logo'));?>">
+                                    </a>
+                                <?php endif;?>
                             </h1>
-                        </a>
                         
                         <a href="#" class="search-button"></a>
 
@@ -61,7 +62,7 @@
                 </a> -->
             </div>
            
-           <?php if( $evos_options['home-slider'] && is_front_page() ) : ?>
+           <?php if( get_theme_mod('evos_display_homepage_slider') && is_front_page() ) : ?>
                 <div class="slider">
                     <?php
                         $args = array(
