@@ -34,7 +34,4 @@
   font-weight: normal;
   font-style: normal;
 }
- 
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    @include font-icon();
-}
+

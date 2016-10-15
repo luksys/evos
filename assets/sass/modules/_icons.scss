@@ -95,26 +95,43 @@
 	}
 }
 
+[class^="icon-"]:before, [class*=" icon-"]:before {
+    @include font-icon();
+}
+
 .item-icons {
 	a {
+		&:before {
+			@include font-icon();
+		}
 		&[href*='facebook']{
-			
+			&:before {
+				content: '\f09a';
+			}
 		}
 
 		&[href*='twitter']{
-
+			&:before {
+				content: '\f099';
+			}
 		}
-		
+		 
 		&[href*='instagram']{
-
+			&:before {
+				content: '\f16d';
+			}
 		}
 
 		&[href*='pinterest']{
-
+			&:before {
+				content: '\f231';
+			}
 		}
 
 		&[href*='linkedin']{
-
+			&:before {
+				content: '\f0e1';
+			}
 		}
 	}
 }

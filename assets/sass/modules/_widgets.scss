@@ -104,4 +104,17 @@
 			}
 		}
 	}
+
+	&.widget_evos_social_widget {
+		li {
+			display: inline-block;
+
+			a {
+				border: none;
+			    margin-bottom: 0;
+			    padding-bottom: 0;
+			    margin-right: 7px;
+			}
+		}
+	}
 }
