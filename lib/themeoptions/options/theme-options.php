@@ -218,64 +218,86 @@
     $content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'redux-framework-demo' );
     Redux::setHelpSidebar( $opt_name, $content );
 
+    $posts_categories = array();
+
+    foreach (get_categories() as $key => $category) :
+        $posts_categories[$category->term_id] = $category->cat_name;
+    endforeach;
+
 
     // Header options
     Redux::setSection( $opt_name, array(
-        'title'            => __( 'Header', 'redux-framework-demo' ),
-        'id'               => 'header',
+        'title'            => __( 'Header options', 'redux-framework-demo' ),
+        'id'               => 'htrhrtdjrtfj',
         'desc'             => __( 'Header options', 'redux-framework-demo' ),
         'customizer_width' => '500px',
-        'icon'             => 'el el-home'
-    ) );
-
-    // Header logo
-    Redux::setSection( $opt_name, array(
-        'title'             => __( 'Header Media', 'redux-framework-demo' ),
-        'id'                => 'header-media',
-        'desc'              => __( 'Upload all media that is used in header area.', 'redux-framework-demo' ),
-        'subsection'       => true,
+        'icon'             => 'el el-home',
         'fields'            => array(
+             array(
+                'id'       => 'fixed_header',
+                'title'    => __( 'Header is fixed?', 'redux-framework-demo' ),
+                'type' => 'switch',
+                'default'  => '0',
+            ),
             array(
                 'id'       => 'header-logo',
                 'type'     => 'media',
                 'title'    => __( 'Header Logo', 'redux-framework-demo' ),
                 'desc'     => __( 'Here you can upload your logo for header.', 'redux-framework-demo' ),
             ),
-        )
-    ) );
-
-
-    // Top bar section
-    Redux::setSection( $opt_name, array(
-        'title'             => __( 'Top Bar', 'redux-framework-demo' ),
-        'id'                => 'topbar_settings',
-        'desc'              => __( 'Upload all media that is used in header area.', 'redux-framework-demo' ),
-        'subsection'       => true,
-        'fields'            => array(
-            // Topbar visibility
             array(
                 'id'       => 'topbar',
                 'title'    => __( 'Show Top bar?', 'redux-framework-demo' ),
                 'type' => 'switch',
                 'default'  => '0',
             ),
-
-            // HEADER LAYOUT
-            // array(
-            //     'id'=>'boxed_layout',
-            //     'type' => 'image_select',
-            //     'compiler'=> false,
-            //     'customizer' => true,
-            //     'title' => __('Site Layout Style', 'virtue'), 
-            //     'subtitle' => __('Select Boxed or Wide Site Layout Style', 'virtue'),
-            //     'options' => array(
-            //             'wide' => array('alt' => 'Wide Layout', 'img' => OPTIONS_PATH.'img/1c.png'),
-            //             'boxed' => array('alt' => 'Boxed Layout', 'img' => OPTIONS_PATH.'img/3cm.png'),
-            //         ),
-            //     'default' => 'wide',
-            // ),
+            array(
+                'id'       => 'home-slider',
+                'title'    => __( 'Show home slider?', 'redux-framework-demo' ),
+                'type' => 'switch',
+                'default'  => '0',
+            ),
+            array(
+                'id'       => 'home-slider-category',
+                'type'     => 'select',
+                'title'    => __( 'Select slider category:', 'redux-framework-demo' ),
+                'options'  => $posts_categories,
+                'default'  => '2'
+            ),
         )
     ) );
+
+    // Top bar section
+    // Redux::setSection( $opt_name, array(
+    //     'title'             => __( 'Top Bar', 'redux-framework-demo' ),
+    //     'id'                => 'topbar_settings',
+    //     'desc'              => __( 'Upload all media that is used in header area.', 'redux-framework-demo' ),
+    //     'subsection'       => true,
+    //     'fields'            => array(
+    //         // Topbar visibility
+    //         array(
+    //             'id'       => 'topbar',
+    //             'title'    => __( 'Show Top bar?', 'redux-framework-demo' ),
+    //             'type' => 'switch',
+    //             'default'  => '0',
+    //         ),
+
+    //         // HEADER LAYOUT
+    //         // array(
+    //         //     'id'=>'boxed_layout',
+    //         //     'type' => 'image_select',
+    //         //     'compiler'=> false,
+    //         //     'customizer' => true,
+    //         //     'title' => __('Site Layout Style', 'virtue'), 
+    //         //     'subtitle' => __('Select Boxed or Wide Site Layout Style', 'virtue'),
+    //         //     'options' => array(
+    //         //             'wide' => array('alt' => 'Wide Layout', 'img' => OPTIONS_PATH.'img/1c.png'),
+    //         //             'boxed' => array('alt' => 'Boxed Layout', 'img' => OPTIONS_PATH.'img/3cm.png'),
+    //         //         ),
+    //         //     'default' => 'wide',
+    //         // ),
+    //     )
+    // ) );
 
       // Main header area layout
     Redux::setSection( $opt_name, array(
@@ -300,33 +322,14 @@
         )
     ) );
 
-
-    $posts_categories = array();
-
-    foreach (get_categories() as $key => $category) :
-        $posts_categories[$category->term_id] = $category->cat_name;
-    endforeach;
-
-    Redux::setSection( $opt_name, array(
-        'title'             => __( 'Home slider', 'redux-framework-demo' ),
-        'id'                => 'home-header-slider-section',
-        'subsection'       => true,
-        'fields'            => array(
-            array(
-                'id'       => 'home-slider',
-                'title'    => __( 'Show home slider?', 'redux-framework-demo' ),
-                'type' => 'switch',
-                'default'  => '0',
-            ),
-            array(
-                'id'       => 'home-slider-category',
-                'type'     => 'select',
-                'title'    => __( 'Select slider category:', 'redux-framework-demo' ),
-                'options'  => $posts_categories,
-                'default'  => '2'
-            ),
-        )
-    ) );
+    // Redux::setSection( $opt_name, array(
+    //     'title'             => __( 'Home slider', 'redux-framework-demo' ),
+    //     'id'                => 'home-header-slider-section',
+    //     'subsection'       => true,
+    //     'fields'            => array(
+           
+    //     )
+    // ) );
 
     global $evos_extra_options;
 

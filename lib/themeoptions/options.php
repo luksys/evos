@@ -4,7 +4,6 @@
 // function remove_redux_menu() {
 //     remove_submenu_page('tools.php','redux-about');
 // }
-
 // Include Redux framework and associated files
 if ( !class_exists( 'ReduxFramework' ) && file_exists( dirname( __FILE__ ) . '/framework.php' ) ) {
     require_once( dirname( __FILE__ ) . '/framework.php' );
