@@ -61,12 +61,15 @@
                   <div class="mobile-menu-inner"></div>  
                 </a> -->
             </div>
-           
-           <?php if( get_theme_mod('evos_display_homepage_slider') && is_front_page() ) : ?>
+           <?php if( 
+                    get_theme_mod('evos_display_homepage_slider')
+                    && get_theme_mod('evos_homepage_slider_category')
+                    && is_front_page()
+                ) : ?>
                 <div class="slider">
                     <?php
                         $args = array(
-                            'category'          => $evos_options['home-slider-category'],
+                            'category'          => get_theme_mod('evos_homepage_slider_category'),
                             'posts_per_page'    => -1
                         );
                         $slides = get_posts( $args );

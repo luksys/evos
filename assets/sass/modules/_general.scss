@@ -50,7 +50,7 @@ img {
 	position: fixed;
 	top:0; bottom:0;
 	left:0; right:0;
-	background: rgba(0, 0, 0, 0.95);
+	background: rgba(255, 255, 255, 0.95);
 	z-index: 999;
 	transition-property: opacity, visibility;
 	transition-duration: 0.3s;
@@ -61,7 +61,7 @@ img {
     	top: 30px;
     	width: 30px;
     	height: 30px;
-	    color: #fff;
+	    color: #000;
 	    font-size: 40px;
 
 	    &:before {
@@ -71,7 +71,7 @@ img {
     		left: 0;
 			width: 30px;
 			height: 2px;
-			background: #fff;
+			background: #000;
 			transform: rotateZ(45deg);
 	    }
 
@@ -83,7 +83,7 @@ img {
     		left: 0;
 			width: 30px;
 			height: 2px;
-			background: #fff;
+			background: #000;
 			transform: rotateZ(-45deg);
 	    }
 	}
@@ -96,9 +96,18 @@ img {
 		width: 500px;
 		max-width: 95%;
 		@extend %clear;
+		text-align: center;
 
 		@include until($tablet){
 			top: 40%;
+		}
+
+		.search-text {
+			font-size: 30px;
+
+			@include until($tablet){
+				font-size: 20px;
+			}
 		}
 
 		.input-field {
@@ -107,17 +116,28 @@ img {
 		    font-size: 20px;
 		    font-weight: 200;
 		    border: none;
+		    background: transparent;
+		    font-size: 60px;
+    		text-align: inherit;
+
+    		@include until($tablet){
+				font-size: 40px;
+			}
 		}
 
-		.submit-button {
-		    width: 35px;
-		    height: 35px;
-		    font-size: 24px;
-		    margin: 8px auto 0 auto;
-		    display: block;
-		    float: right;
-		    border: none;
-		}
+		// .submit-button {
+		//     width: 35px;
+		//     height: 35px;
+		//     font-size: 24px;
+		//     margin: 8px auto 0 auto;
+		//     display: block;
+		//     float: right;
+		//     border: none;
+
+		//     &:before {
+		//     	content: "\f002";
+		//     }
+		// }
 	}
 
 	&.is-active {

@@ -34,14 +34,7 @@
 		    </div>
 		    <a href="#" id="scroll-to-top" class="scroll-to-top"><i class="fa fa-arrow-up"></i></a>
 		</footer>
+		<?php get_template_part('template-parts/content', 'search-popup');?>
 		<?php wp_footer(); ?>
-		<form class="search-form-overlay" id="search-form-overlay">
-			<a href="#" class="close-search"></a>
-			<div class="form-inner">
-				<input type="text" class="input-field" placeholder="Type to search...">
-            	<input type="submit" class="submit-button" value="&#xe800;">
-			</div>
-        </form>
-
 	</body>
 </html>

@@ -35,6 +35,6 @@
   font-style: normal;
 }
  
-[class^="icon-"]:before, [class*=" icon-"]:before, .submit-button {
+[class^="icon-"]:before, [class*=" icon-"]:before {
     @include font-icon();
 }

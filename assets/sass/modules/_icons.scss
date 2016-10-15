@@ -24,7 +24,7 @@
 	@extend %clear;
 	.icons {
 		text-align: right;
-		.icons-item {
+		.item-icons {
 			padding: 0 2px;
 			a {
 				position: relative;
@@ -53,36 +53,7 @@
 						}
 					}
 				}
-				&[href*='facebook']{
-					background: #3C5A99;
-
-					.fa-facebook {
-						position: relative;
-						top: 1px;
-					}
-				}
-
-				&[href*='twitter']{
-					background: #00C3F3;
-
-					.fa-twitter {
-						font-size: 20px;
-						position: relative;
-						top: 2px;
-					}
-				}
 				
-				&[href*='instagram']{
-					background: #325C86;
-				}
-
-				&[href*='pinterest']{
-					background: #CB2027;
-				}
-
-				&[href*='linkedin']{
-					background: #007BB6;
-				}
 				   
 				.share-text {
 					font-size: 14px;
@@ -120,6 +91,30 @@
 					}
 				}
 			}
+		}
+	}
+}
+
+.item-icons {
+	a {
+		&[href*='facebook']{
+			
+		}
+
+		&[href*='twitter']{
+
+		}
+		
+		&[href*='instagram']{
+
+		}
+
+		&[href*='pinterest']{
+
+		}
+
+		&[href*='linkedin']{
+
 		}
 	}
 }

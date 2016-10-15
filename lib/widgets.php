@@ -73,7 +73,7 @@ class evos_social_widget extends WP_Widget {
             <?php
                 foreach ($this->socials as $key => $social_index) :
                     if( !empty($instance[$social_index]) )
-                        printf( '<li class="icons-item"><a href="%s" target="%s"><i class="fa fa-facebook"></i></a></li>', $instance[$social_index], $instance['link_target'] );
+                        printf( '<li class="item-icons"><a href="%s" target="%s"></a></li>', $instance[$social_index], $instance['link_target'] );
                 endforeach;
             ?>
         </ul>

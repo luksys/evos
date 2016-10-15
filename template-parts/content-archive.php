@@ -3,9 +3,16 @@
 <?php 
 if ( have_posts() ) :
 	while ( have_posts() ) :
-		the_post(); 
-		get_template_part('item');
+		the_post();
+
+		if( !is_search() ) :
+			get_template_part('item', get_post_type());
+		else :
+			get_template_part('item', 'search');
+		endif;
 	endwhile;
+else :
+	get_template_part('template-parts/content', 'none');
 endif;
 
 
