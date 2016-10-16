@@ -1,14 +1,6 @@
 jQuery( document ).ready(function($) {
 
-	$('.slider').flickity({
-		
-		// nav: true,
-		// dots: false, 
-		// items:1,
-		// center: true,
-		// loop: true,
-		// navText: ['<span class="ion-ios-arrow-back"></span>','<span class="ion-ios-arrow-forward"></span>']
-	});
+	$('.slider').flickity();
 
 	var scrollTop = $('#scroll-to-top');
 
@@ -48,6 +40,36 @@ jQuery( document ).ready(function($) {
 		$('#search-form-overlay').removeClass('is-active');
 	});
 
+	if( $('.header_sticky').length > 0 ) {
+		$(function() {
+			console.log('test');
+		    var menu, menuInner ,$document, didScroll, offset;
+		    menuInner = $('.main-header-area');
+		    menu = $('#mastheader');
+		    offset = 600;
+		    $document = $(document);
+		    didScroll = false;
+		    $(window).on('scroll touchmove', function() {
+		      return didScroll = true;
+		    });
+		    return setInterval(function() {
+		      if (didScroll) {
+		      	
+		      	if( $document.scrollTop() > offset ) {
+		      		menu.addClass('is-sticky');
+		      		menuInner.addClass('in-active');
+		      		window.setTimeout(function(){menu.addClass('top-animate');}, 100);
+		      	}else {
+		      		menu.removeClass('is-sticky top-animate');
+		      		menuInner.removeClass('in-active');
+		      	}
+		      	
+		        return didScroll = false;
+		      }
+		    }, 250);
+		});
+	}
+	
 });
 
 /*!

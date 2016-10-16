@@ -1,6 +1,26 @@
 <?php
 function evos_widgets_init() {
     $widgets[] = array(
+        'name' => __( 'Top bar left widget area', 'evos' ),
+        'id' => 'topbar-left-widget-area',
+        'description' => __( 'This is left top bar widget area', 'evos' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    );
+
+    $widgets[] = array(
+        'name' => __( 'Top bar right widget area', 'evos' ),
+        'id' => 'topbar-right-widget-area',
+        'description' => __( 'This is right top bar widget area', 'evos' ),
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    );
+
+    $widgets[] = array(
         'name' => __( 'Sidebar widget area', 'evos' ),
         'id' => 'sidebar-widget-area',
         'description' => __( 'This is right sidebar widget', 'evos' ),

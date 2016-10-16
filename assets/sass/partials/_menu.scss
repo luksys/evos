@@ -1,7 +1,6 @@
 .menu {
 	> .menu-item {
 		position:relative;
-		padding: 20px 0;
 
 		@include until($small-desktop){
 	  		&.submenu-is-active{

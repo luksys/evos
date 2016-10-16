@@ -1,15 +1,54 @@
+.header_sticky {
+	&.top-bar-active {
+		.mastheader {
+			height: 120px;
+		}
+
+		.main {
+			padding-top: 120px;
+			margin-top: 0;
+		}
+	}
+	.mastheader {
+		position: absolute;
+		z-index: 1000;
+		background: #fff;
+	    box-shadow: 0 1px 1px #f3f3f3;
+		width: 100%;
+	    height: 95px;
+	    transition: top .50s ease;
+
+		&.is-sticky {
+			position: fixed;
+		    height: 60px;
+		    top: -300px;
+		    right: 0px;
+		    background: rgba(255,255,255,0.95);
+		   
+		    .top-section {
+		   		display: none;
+		   }
+
+		   .logo-link {
+		   	   width: 70%;
+		   }
+		}
+
+		&.top-animate {
+			top: 0px;
+		}	    
+	}
+
+	.main {
+		padding-top: 95px;
+		margin-top: 0;
+	}
+}
+
+
+
 .mastheader {
 	background: #fff;
-
-	&.is-fixed {
-		position: fixed;
-	    left: 0;
-	    right: 0;
-	    top: 0;
-	    z-index: 1000;
-	    background: rgba(255,255,255,0.8);
-	    box-shadow: 0 1px 1px #626262;
-	}
 
 	// @include until($small-desktop){
 	//   	&.is-active-mb {
@@ -50,14 +89,31 @@
 	// }
 
 	.top-section-inner {
-		@extend %clear;
-		.icons {
-			float: right;
-			padding: 5px 0;
+		display: flex;
+		
+		.widget-container {
+			margin-bottom: 0;
+			display: inline-block;
+			.widget-title {
+				display: none;
+			}
+
+			&.widget_text {
+				font-size: 13px;
+			}
+		}
+		.top-section-item {
+			flex-grow: 1;
+    		flex-basis: 0;
+
+    		&:nth-child(2){
+				text-align: right;
+    		}
 		}
 	}
 	.masthead-inner {
 		@extend %clear;
+		
 
 		@include until($small-desktop){
 		  	padding: 20px 20px 30px;
@@ -132,18 +188,24 @@
 	}
 	.main-header-area {
 		@extend %clear;
-		padding: 10px 0;
+		padding-top: 30px;
+
+		&.in-active {
+			padding-top: 15px;
+		}
+
 		.logo-link {
 			float: left;
+			width: 100%;
 		}
 
 		.logo-wrapper {
 			display: inline-block;
 			vertical-align: middle;
 			font-size: inherit;
+			margin: 0;
 		}
 		.menu-main-menu-container {
-			margin: 8px 0 0 40px;
 			position: relative;
 			z-index: 2;
 			float: right;
@@ -157,7 +219,6 @@
 			text-decoration: none;
 			color: $brand-color-dark;
 			float: right;
-    		margin: 32px 0 0 20px;
     		font-size: 17px;
     		line-height: 1;
 

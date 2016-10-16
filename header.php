@@ -21,47 +21,42 @@
         <?php
             global $evos_extra_options;
         ?>
-        <header class="mastheader">
+        <header class="mastheader" id="mastheader">
             <?php if( get_theme_mod('evos_display_top_bar') )  : ?>
                 <div class="top-section">
                     <div class="top-section-inner c">
-                        <ul class="icons">
-                            <li class="icons-item"><a href="facebook"><i class="fa fa-facebook"></i></a></li>
-                            <li class="icons-item"><a href="twitter"><i class="fa fa-twitter"></i></a></li>
-                            <li class="icons-item"><a href="instagram"><i class="fa fa-instagram"></i></a></li>
-                            <li class="icons-item"><a href="pinterest"><i class="fa fa-pinterest-p"></i></a></li>
-                            <li class="icons-item"><a href="linkedin"><i class="fa fa-linkedin"></i></a></li>
-                            <li class="icons-item"><a href="youtube"><i class="fa fa-youtube"></i></a></li>
-                        </ul>
+                       <?php if( is_active_sidebar( 'topbar-left-widget-area' ) ) : ?>
+                            <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-left-widget-area' );?></div>   
+                        <?php endif;?>
+                        <?php if( is_active_sidebar( 'topbar-right-widget-area' ) ) : ?>
+                            <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-right-widget-area' );?></div>   
+                        <?php endif;?>
                     </div>
                 </div>
             <?php endif;?>
 
             <div class="masthead-inner">
-        
-                <div class="main-header-area">
-
-                    <div class="c">
-                            <h1 class="logo-wrapper">
-                                <?php if( !empty(get_theme_mod('evos_logo')) ) : ?>
-                                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
-                                        <img src="<?php echo esc_url(get_theme_mod('evos_logo'));?>">
-                                    </a>
-                                <?php endif;?>
-                            </h1>
+                <div class="main-header-area c">
+                    <h1 class="logo-wrapper">
+                        <?php if( !empty(get_theme_mod('evos_logo')) ) : ?>
+                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
+                                <img src="<?php echo esc_url(get_theme_mod('evos_logo'));?>">
+                            </a>
+                        <?php endif;?>
+                    </h1>
                         
-                        <a href="#" class="search-button"></a>
+                    <a href="#" class="search-button"></a>
 
-                        <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
-                        
-                    </div>
-                 
+                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
                 </div>
                <!--  <a href="#" class="mobile-menu" id="mobile-menu">
                   <div class="mobile-menu-inner"></div>  
                 </a> -->
             </div>
-           <?php if( 
+        </header>
+
+        <main class="main">
+            <?php if( 
                     get_theme_mod('evos_display_homepage_slider')
                     && get_theme_mod('evos_homepage_slider_category')
                     && is_front_page()
@@ -104,9 +99,7 @@
             </div>
             */?>
             <?php evos_top_section_settings();?>
-        </header>
 
-        <main class="main">
             <div class="c">
             <?php if( $evos_extra_options['main_title'] ) : ?>
                 <?php echo evos_get_title();?>

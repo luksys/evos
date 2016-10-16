@@ -25,24 +25,30 @@ function evos_get_title(){
 add_filter( 'body_class', function( $classes ) {
    global $post,	$evos_display_sidebar;
    $evos_display_sidebar = true;
-   $class = '';
+   $extra_classes = array();
 
     if( is_singular() ) :
    		$layout_option = get_post_meta($post->ID, 'evos_layout_options', true);
-   		$class = !empty($layout_option) ? $layout_option : get_theme_mod('evos_layout_settings');
+   		$extra_classes[] = !empty($layout_option) ? $layout_option : get_theme_mod('evos_layout_settings');
     elseif( is_home() ) :
     	$layout_option = get_post_meta( get_option( 'page_for_posts' ), 'evos_layout_options', true );
-   		$class = !empty( $layout_option ) ? $layout_option : get_theme_mod('evos_layout_settings');
+   		$extra_classes[] = !empty( $layout_option ) ? $layout_option : get_theme_mod('evos_layout_settings');
    	else :
-   		$class = get_theme_mod('evos_layout_settings');
+   		$extra_classes = get_theme_mod('evos_layout_settings');
    endif;
 
-   if( $class === 'no-sidebar' || $class === 'full-width' )
+   if( in_array('no-sidebar', $extra_classes) || in_array('full-width', $extra_classes) )
    		$evos_display_sidebar = false;
 
-   $classes[] = $class;
+    if( get_theme_mod('evos_header_fixed') )
+      $extra_classes[] = 'header_sticky';
 
-   return $classes;
+    if( get_theme_mod('evos_display_top_bar') )
+      $extra_classes[] = 'top-bar-active';
+
+   $result = array_merge($classes, $extra_classes);
+
+   return $result;
 } );
 
 
@@ -67,8 +73,6 @@ function evos_top_section_settings(){
 
   if( $banner_options === 'on' || (empty($banner_options) && get_theme_mod('evos_display_banner_global')) )
     $display_top_banner = true;
-  
-  print_r(has_post_thumbnail());
 
   if( $display_top_banner && has_post_thumbnail() ) :
     get_template_part('template-parts/content', 'banner');

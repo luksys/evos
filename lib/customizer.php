@@ -2,12 +2,21 @@
 
 function mytheme_customize_register( $wp_customize ) {
 
-  // Top bar settings
-  $wp_customize->add_section('evos_top_bar', array(
+  // Global options
+  $wp_customize->add_panel( 'evos_global_settings', array(
+    'title' => 'Global Settings',
+    'description' => 'Evos global settings',
+    'priority' => 10,
+  ) );
+
+  // Header section
+   $wp_customize->add_section('evos_header', array(
       'priority' => 1,
-      'title' => __('Evos top bar', 'colormag'),
+      'title' => __('Header', 'colormag'),
+      'panel' => 'evos_global_settings'
    ));
 
+  // Top bar settings
    $wp_customize->add_setting('evos_display_top_bar', array(
       'default' => 0,
       'capability' => 'edit_theme_options',
@@ -15,17 +24,12 @@ function mytheme_customize_register( $wp_customize ) {
 
    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_top_bar', array(
       'label' => __('Display topbar', 'colormag'),
-      'section' => 'evos_top_bar',
+      'section' => 'evos_header',
       'setting' => 'evos_display_top_bar',
       'type' => 'checkbox'
-   )));
+   )));   
 
   // Header logo
-  $wp_customize->add_section('evos_header_logo', array(
-      'priority' => 1,
-      'title' => __('Header Logo', 'colormag'),
-   ));
-
    $wp_customize->add_setting('evos_logo', array(
       'default' => '',
       'capability' => 'edit_theme_options',
@@ -34,9 +38,22 @@ function mytheme_customize_register( $wp_customize ) {
 
    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logo', array(
       'label' => __('Upload logo for your header', 'colormag'),
-      'section' => 'evos_header_logo',
+      'section' => 'evos_header',
       'setting' => 'evos_logo'
    )));
+
+  // Header fixed
+  $wp_customize->add_setting('evos_header_fixed', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_header_fixed', array(
+      'label' => __('Header Fixed?', 'colormag'),
+      'section' => 'evos_header',
+      'setting' => 'evos_header_fixed',
+      'type' => 'checkbox'
+  )));
 
     // Homepage panel
    $wp_customize->add_panel( 'evos_homepage_panel', array(
@@ -80,14 +97,6 @@ function mytheme_customize_register( $wp_customize ) {
       'type'    => 'select',
       'choices' => $posts_categories
   )));
-
-  // Global options
-  $wp_customize->add_panel( 'evos_global_settings', array(
-    'title' => 'Global Settings',
-    'description' => 'Evos global settings',
-    'priority' => 10,
-  ) );
-
 
   // Layout options
   $wp_customize->add_section('evos_layout', array(
