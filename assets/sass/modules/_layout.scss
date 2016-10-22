@@ -1,19 +1,15 @@
 .sidebar-right {
-	.main-content {
-		float: left;
-	}
 	.sidebar {
-		float: right;
 		padding-left: 60px;
 	}
 }
 
 .sidebar-left {
 	.main-content {
-		float: right;
+		order: 2;
 	}
 	.sidebar {
-		float: left;
+		order: 1;
 		padding-right: 60px;
 	}
 }
@@ -21,5 +17,11 @@
 .full-width {
 	.main-content {
 		width: auto;
+	}
+}
+
+.sidebar-active {
+	.inner-wrapper {
+		display: flex;
 	}
 }

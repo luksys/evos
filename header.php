@@ -25,29 +25,44 @@
             <?php if( get_theme_mod('evos_display_top_bar') )  : ?>
                 <div class="top-section">
                     <div class="top-section-inner c">
-                       <?php if( is_active_sidebar( 'topbar-left-widget-area' ) ) : ?>
-                            <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-left-widget-area' );?></div>   
-                        <?php endif;?>
-                        <?php if( is_active_sidebar( 'topbar-right-widget-area' ) ) : ?>
-                            <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-right-widget-area' );?></div>   
-                        <?php endif;?>
+                        <div class="frow justify-between">
+                            <?php if( is_active_sidebar( 'topbar-left-widget-area' ) ) : ?>
+                                <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-left-widget-area' );?></div>   
+                            <?php endif;?>
+                            <?php if( is_active_sidebar( 'topbar-right-widget-area' ) ) : ?>
+                                <div class="top-section-item"> <?php dynamic_sidebar( 'topbar-right-widget-area' );?></div>   
+                            <?php endif;?>
+                        </div>
                     </div>
                 </div>
             <?php endif;?>
 
+
             <div class="masthead-inner">
                 <div class="main-header-area c">
-                    <h1 class="logo-wrapper">
-                        <?php if( !empty(get_theme_mod('evos_logo')) ) : ?>
-                            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
-                                <img src="<?php echo esc_url(get_theme_mod('evos_logo'));?>">
-                            </a>
-                        <?php endif;?>
-                    </h1>
-                        
-                    <a href="#" class="search-button"></a>
+                    <div class="frow justify-between">
 
-                    <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'main-menu' ) ); ?>
+                        <h1 class="logo-wrapper frow direction-column">
+                            <?php if( !empty(get_theme_mod('evos_logo')) ) : ?>
+                                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo-link">
+                                    <img src="<?php echo esc_url(get_theme_mod('evos_logo'));?>">
+                                </a>
+                            <?php endif;?>
+                        </h1>
+                        
+                        <div class="header-inner">
+                            <div class="frow">
+                                <?php wp_nav_menu( array( 
+                                    'theme_location'    => 'primary',
+                                    'menu_id'           => 'main-menu',
+                                    'walker'            => new Walker_Quickstart_Menu() 
+                                 ) ); ?>
+
+                                <a href="#" class="search-button"></a>
+                            </div>
+                        </div>
+                       
+                    </div>
                 </div>
                <!--  <a href="#" class="mobile-menu" id="mobile-menu">
                   <div class="mobile-menu-inner"></div>  
@@ -100,7 +115,8 @@
             */?>
             <?php evos_top_section_settings();?>
 
-            <div class="c">
-            <?php if( $evos_extra_options['main_title'] ) : ?>
-                <?php echo evos_get_title();?>
-            <?php endif;?>
+            <div class="c gutter">
+                <div class="inner-wrapper">
+                    <?php if( $evos_extra_options['main_title'] ) : ?>
+                        <?php echo evos_get_title();?>
+                    <?php endif;?>

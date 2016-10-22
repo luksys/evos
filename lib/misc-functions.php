@@ -34,11 +34,14 @@ add_filter( 'body_class', function( $classes ) {
     	$layout_option = get_post_meta( get_option( 'page_for_posts' ), 'evos_layout_options', true );
    		$extra_classes[] = !empty( $layout_option ) ? $layout_option : get_theme_mod('evos_layout_settings');
    	else :
-   		$extra_classes = get_theme_mod('evos_layout_settings');
+   		$extra_classes[] = get_theme_mod('evos_layout_settings');
    endif;
 
    if( in_array('no-sidebar', $extra_classes) || in_array('full-width', $extra_classes) )
    		$evos_display_sidebar = false;
+
+    if(  $evos_display_sidebar )
+       $extra_classes[] = 'sidebar-active';
 
     if( get_theme_mod('evos_header_fixed') )
       $extra_classes[] = 'header_sticky';

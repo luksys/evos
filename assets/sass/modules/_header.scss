@@ -1,11 +1,12 @@
 .header_sticky {
 	&.top-bar-active {
 		.mastheader {
-			height: 120px;
+			height: 105px;
+			backface-visibility: hidden;
 		}
 
 		.main {
-			padding-top: 120px;
+			padding-top: 105px;
 			margin-top: 0;
 		}
 	}
@@ -13,9 +14,8 @@
 		position: absolute;
 		z-index: 1000;
 		background: #fff;
-	    box-shadow: 0 1px 1px #f3f3f3;
 		width: 100%;
-	    height: 95px;
+	    height: 75px;
 	    transition: top .50s ease;
 
 		&.is-sticky {
@@ -23,7 +23,7 @@
 		    height: 60px;
 		    top: -300px;
 		    right: 0px;
-		    background: rgba(255,255,255,0.95);
+		    background: rgba(249, 249, 249, 0.95);
 		   
 		    .top-section {
 		   		display: none;
@@ -40,12 +40,10 @@
 	}
 
 	.main {
-		padding-top: 95px;
+		padding-top: 75px;
 		margin-top: 0;
 	}
 }
-
-
 
 .mastheader {
 	background: #fff;
@@ -89,7 +87,6 @@
 	// }
 
 	.top-section-inner {
-		display: flex;
 		
 		.widget-container {
 			margin-bottom: 0;
@@ -102,113 +99,26 @@
 				font-size: 13px;
 			}
 		}
-		.top-section-item {
-			flex-grow: 1;
-    		flex-basis: 0;
-
-    		&:nth-child(2){
-				text-align: right;
-    		}
-		}
 	}
-	.masthead-inner {
-		@extend %clear;
-		
 
-		@include until($small-desktop){
-		  	padding: 20px 20px 30px;
-		}
-
-		.mobile-menu {
-		  	position: relative;
-		  	width: 35px;
-    		height: 28px;
-		  	display: block;
-		  	float: right;
-
-		  @include at-least($small-desktop){
-		  	display:none;
-		  }
-		}
-		.mobile-menu-inner {
-		  	position: absolute;
-		  	background: #000;
-		  	width: 100%;
-		  	height: 3px;
-		  	top: 50%;
-		  	right: 0px;
-		  	opacity: 1;
-		}
-		.mobile-menu-inner::before {
-		  	position: absolute;
-		  	background: #000;
-		  	width: 100%;
-		  	height: 3px;
-		  	top: 11px;
-		  	content: "";
-		  	display: block;
-		}
-		.mobile-menu-inner::after {
-		  	position: absolute;
-		  	background: #000;
-		  	width: 100%;
-		  	height: 3px;
-		  	bottom: 11px;
-		  	content: "";
-		  	display: block;
-		}
-		.mobile-menu-inner::after, .mobile-menu-inner::before, .mobile-menu-inner {
-		  	transition: all .3s ease-in-out;
-		  	-webkit-transition: all .3s ease-in-out;
-		}
-		.mobile-menu.is-active .mobile-menu-inner::after{
-		  	transform: rotate(-45deg);
-		  	-webkit-transform: rotate(-45deg);
-		  	bottom: 0px;
-		}
-		.mobile-menu.is-active .mobile-menu-inner::before{
-		   transform: rotate(45deg);
-		   -webkit-transform: rotate(45deg);
-		  	top: 0px;
-		}
-		.mobile-menu.is-active .mobile-menu-inner{
-		 background: rgba(111,111,111,.0);
-		}
-		/* useless css */
-		.mobile-menu {
-		  margin-left:auto;
-		  margin-right: auto;
-
-		  &.mobile-menu {
-		  		position: absolute;
-    			top: 78px;
-    			right: 20px;
-		  }
-		}
-	}
 	.main-header-area {
 		@extend %clear;
-		padding-top: 30px;
+		line-height: 75px;
 
 		&.in-active {
-			padding-top: 15px;
+			line-height: 60px;
 		}
 
 		.logo-link {
 			float: left;
 			width: 100%;
+			line-height: inherit;
 		}
 
 		.logo-wrapper {
-			display: inline-block;
-			vertical-align: middle;
-			font-size: inherit;
 			margin: 0;
 		}
 		.menu-main-menu-container {
-			position: relative;
-			z-index: 2;
-			float: right;
 			@include until($small-desktop){
 			  	display:none;
 			  	margin: 20px 0 0 0;
@@ -218,9 +128,9 @@
 		.search-button {
 			text-decoration: none;
 			color: $brand-color-dark;
-			float: right;
     		font-size: 17px;
-    		line-height: 1;
+    		line-height: inherit;
+    		margin-left: 12px;
 
    			&:before {
    				content: "\f002";
@@ -228,103 +138,144 @@
    			}
 		}
 
-	}
+		.menu {
+			text-align: center;
+			> li > a {
+				line-height: inherit;
+			}
 
-	.featured-section {
-		background: #000;
-		color: #fff;
-		.outer {
-			@extend %clear;
-			padding: 20px 0;
-			.text-body {
-				float: left;
-				width: 70%;
-				@include until($tablet){
-					width: auto;
-    				float: none;
-    				text-align: center;
+			.menu-item-has-children {
+				&:hover .sub-menu {
+					visibility: visible;
+					opacity: 1;
 				}
 			}
 
-			.helper {
-				float: right;
-				width: 28%;
-				@include until($tablet){
-					float: none;
-    				width: auto;
-    				text-align: center;
-    				margin-top: 10px;
+			.sub-menu {
+				opacity:0;
+				visibility: hidden;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				min-width: 120px;
+				z-index:1;
+				background: #fff;
+				padding: 15px 10px;
+				transition: all 200ms ease-out;
+		    	transition-property: visibility, opacity;
+		    	transform: translateX(-50%);
+    			left: 50%;
+		    	margin:0;
+				padding:0;
+				list-style-type: none;
+
+		    	@include until($small-desktop){
+				  	border-bottom: none;
 				}
 
-				.helper-button {
-					background: #CE1919;
-    				padding: 2px 10px;
-    				text-decoration: none;
-    				color: #fff;
+				a {
+    				line-height: 50px;
 				}
 			}
-		}
+		}	
 	}
 }
 
-@keyframes hvr-buzz-out {
-  10% {
-    transform: translateX(3px) rotate(2deg);
-  }
-  20% {
-    transform: translateX(-3px) rotate(-2deg);
-  }
+	// .featured-section {
+	// 	background: #000;
+	// 	color: #fff;
+	// 	.outer {
+	// 		@extend %clear;
+	// 		padding: 20px 0;
+	// 		.text-body {
+	// 			float: left;
+	// 			width: 70%;
+	// 			@include until($tablet){
+	// 				width: auto;
+ //    				float: none;
+ //    				text-align: center;
+	// 			}
+	// 		}
 
-  30% {
-    transform: translateX(3px) rotate(2deg);
-  }
+	// 		.helper {
+	// 			float: right;
+	// 			width: 28%;
+	// 			@include until($tablet){
+	// 				float: none;
+ //    				width: auto;
+ //    				text-align: center;
+ //    				margin-top: 10px;
+	// 			}
 
-  40% {
-    transform: translateX(-3px) rotate(-2deg);
-  }
+	// 			.helper-button {
+	// 				background: #CE1919;
+ //    				padding: 2px 10px;
+ //    				text-decoration: none;
+ //    				color: #fff;
+	// 			}
+	// 		}
+	// 	}
+	// }
+// }
 
-  50% {
-    transform: translateX(2px) rotate(1deg);
-  }
+// @keyframes hvr-buzz-out {
+//   10% {
+//     transform: translateX(3px) rotate(2deg);
+//   }
+//   20% {
+//     transform: translateX(-3px) rotate(-2deg);
+//   }
 
-  60% {
-    transform: translateX(-2px) rotate(-1deg);
-  }
+//   30% {
+//     transform: translateX(3px) rotate(2deg);
+//   }
 
-  70% {
-    transform: translateX(2px) rotate(1deg);
-  }
+//   40% {
+//     transform: translateX(-3px) rotate(-2deg);
+//   }
 
-  80% {
-    transform: translateX(-2px) rotate(-1deg);
-  }
+//   50% {
+//     transform: translateX(2px) rotate(1deg);
+//   }
 
-  90% {
-    transform: translateX(1px) rotate(0);
-  }
+//   60% {
+//     transform: translateX(-2px) rotate(-1deg);
+//   }
 
-  100% {
-    transform: translateX(-1px) rotate(0);
-  }
-}
+//   70% {
+//     transform: translateX(2px) rotate(1deg);
+//   }
 
-.hvr-buzz-out {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -moz-osx-font-smoothing: grayscale;
-}
-.hvr-buzz-out:hover, .hvr-buzz-out:focus, .hvr-buzz-out:active {
-  -webkit-animation-name: hvr-buzz-out;
-  animation-name: hvr-buzz-out;
-  -webkit-animation-duration: 0.75s;
-  animation-duration: 0.75s;
-  -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
+//   80% {
+//     transform: translateX(-2px) rotate(-1deg);
+//   }
+
+//   90% {
+//     transform: translateX(1px) rotate(0);
+//   }
+
+//   100% {
+//     transform: translateX(-1px) rotate(0);
+//   }
+// }
+
+// .hvr-buzz-out {
+//   display: inline-block;
+//   vertical-align: middle;
+//   -webkit-transform: translateZ(0);
+//   transform: translateZ(0);
+//   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+//   -webkit-backface-visibility: hidden;
+//   backface-visibility: hidden;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+// .hvr-buzz-out:hover, .hvr-buzz-out:focus, .hvr-buzz-out:active {
+//   -webkit-animation-name: hvr-buzz-out;
+//   animation-name: hvr-buzz-out;
+//   -webkit-animation-duration: 0.75s;
+//   animation-duration: 0.75s;
+//   -webkit-animation-timing-function: linear;
+//   animation-timing-function: linear;
+//   -webkit-animation-iteration-count: 1;
+//   animation-iteration-count: 1;
+// }

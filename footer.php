@@ -1,29 +1,32 @@
+		</div>
 	</div>
 	</main>
 		<footer class="mastfooter">
 		    <div class="c">
-		        <div class="footer-inner grid">
-		            <div class="grid-1-3 grid-item">
-		            <?php
-		            	if( is_active_sidebar( 'footer-widget-area-1' ) ) :
-					        dynamic_sidebar( 'footer-widget-area-1' );
-					    endif;
-				    ?>
-		            </div>
-		            <div class="grid-1-3 grid-item">
-		                <?php
-			            	if( is_active_sidebar( 'footer-widget-area-2' ) ) :
-						        dynamic_sidebar( 'footer-widget-area-2' );
+		        <div class="footer-inner">
+		           <div class="frow gutters">
+			            <div class="col-md-1-3">
+			            <?php
+			            	if( is_active_sidebar( 'footer-widget-area-1' ) ) :
+						        dynamic_sidebar( 'footer-widget-area-1' );
 						    endif;
 					    ?>
-		            </div>
-		            <div class="grid-1-3 grid-item">
-		                <?php
-			            	if( is_active_sidebar( 'footer-widget-area-3' ) ) :
-						        dynamic_sidebar( 'footer-widget-area-3' );
-						    endif;
-					    ?>
-		            </div>
+			            </div>
+			            <div class="col-md-1-3">
+			                <?php
+				            	if( is_active_sidebar( 'footer-widget-area-2' ) ) :
+							        dynamic_sidebar( 'footer-widget-area-2' );
+							    endif;
+						    ?>
+			            </div>
+			            <div class="col-md-1-3">
+			                <?php
+				            	if( is_active_sidebar( 'footer-widget-area-3' ) ) :
+							        dynamic_sidebar( 'footer-widget-area-3' );
+							    endif;
+						    ?>
+			            </div>
+			        </div>
 		        </div>
 		    </div>
 		    <div class="footer-bottom">

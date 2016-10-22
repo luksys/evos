@@ -42,3 +42,45 @@ function evos_setup() {
 }
 endif; // twentysixteen_setup
 add_action( 'after_setup_theme', 'evos_setup' );
+
+
+class Walker_Quickstart_Menu extends Walker_Nav_Menu {
+
+	/**
+	 * What the class handles.
+	 *
+	 * @see Walker::$tree_type
+	 * @since 3.0.0
+	 * @var string
+	 */
+	public $tree_type = array( 'post_type', 'taxonomy', 'custom' );
+
+	/**
+	 * Database fields to use.
+	 *
+	 * @see Walker::$db_fields
+	 * @since 3.0.0
+	 * @todo Decouple this.
+	 * @var array
+	 */
+	public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
+
+ 	/**
+	 * Ends the element output, if needed.
+	 *
+	 * @see Walker::end_el()
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param object $item   Page data object. Not used.
+	 * @param int    $depth  Depth of page. Not Used.
+	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 */
+	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		if( $depth === 0 )
+			$output .= "</li><li>/</li>\n"; return;
+
+		$output .= "</li>\n";
+	}
+}
