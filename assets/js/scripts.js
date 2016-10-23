@@ -21,11 +21,11 @@ jQuery( document ).ready(function($) {
 
 	$("#mobile-menu").on('click',function(e) {
 		e.preventDefault();
-	   	$(this).toggleClass("is-active");
-	   	$('.mastheader').toggleClass("is-active-mb");
+	   	$('.hamburger-menu .bar').toggleClass('is-active');
+	   	$('.menu-main-menu-container').toggleClass('is-active');
 	});
 
-	$(".menu-item-has-children > a").on('click',function(e) {
+	$(".no-click").on('click',function(e) {
 		e.preventDefault();
 	   	$(this).toggleClass('submenu-is-active');
 	});

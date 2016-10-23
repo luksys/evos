@@ -1,109 +1,85 @@
 .header_sticky {
-	&.top-bar-active {
+	@include at-least($small-desktop){
+		&.top-bar-active {
+			.mastheader {
+				height: 105px;
+				backface-visibility: hidden;
+			}
+
+			.main {
+				padding-top: 105px;
+				margin-top: 0;
+			}
+		}
 		.mastheader {
-			height: 105px;
-			backface-visibility: hidden;
+			position: absolute;
+			z-index: 1000;
+			background: #fff;
+			width: 100%;
+		    height: 75px;
+		    transition: top .50s ease;
+
+			&.is-sticky {
+				position: fixed;
+			    height: 60px;
+			    top: -300px;
+			    right: 0px;
+			    background: rgba(249, 249, 249, 0.95);
+			   
+			    .top-section {
+			   		display: none;
+			   }
+
+			   .logo-link {
+			   	   width: 70%;
+
+			   	   img {
+			   	   	max-height: 50px;
+			   	   }
+			   }
+			}
+
+			&.top-animate {
+				top: 0px;
+			}	    
 		}
 
 		.main {
-			padding-top: 105px;
+			padding-top: 75px;
 			margin-top: 0;
 		}
-	}
-	.mastheader {
-		position: absolute;
-		z-index: 1000;
-		background: #fff;
-		width: 100%;
-	    height: 75px;
-	    transition: top .50s ease;
-
-		&.is-sticky {
-			position: fixed;
-		    height: 60px;
-		    top: -300px;
-		    right: 0px;
-		    background: rgba(249, 249, 249, 0.95);
-		   
-		    .top-section {
-		   		display: none;
-		   }
-
-		   .logo-link {
-		   	   width: 70%;
-		   }
-		}
-
-		&.top-animate {
-			top: 0px;
-		}	    
-	}
-
-	.main {
-		padding-top: 75px;
-		margin-top: 0;
 	}
 }
 
 .mastheader {
 	background: #fff;
-
-	// @include until($small-desktop){
-	//   	&.is-active-mb {
-	//   		position: absolute;
-	//   		top:0;
-	//   		left:0; right:0;
-	//   		z-index: 100;
-	//   		.main-header-area {
-	//   			float: none;
-
-	//   			.menu {
-	//   				display:block;
-
-	//   				.menu-item {
-	//   					display:block;
-	//   					padding:0;
-	//   					border-bottom: 1px dotted rgba(29, 20, 20, 0.25);
-	//   					&:before {
- //  							display:none;
- //  						}
-
-	//   					a {
-	//   						padding: 14px 20px 15px 0;
-	//   					}
-	//   				}
-	//   			}
-	//   		}
-
-	//   		.right-block {
-	//   			display: block;
-	//   			float: none;
-	//   			margin-top: 40px;
-	//   		}
-	//   		.slider {
-	//   			display:none;
-	//   		}
-	//   	}
-	// }
-
-	.top-section-inner {
 		
-		.widget-container {
-			margin-bottom: 0;
-			display: inline-block;
-			.widget-title {
-				display: none;
-			}
+	.top-section-inner .widget-container {
+		margin-bottom: 0;
+		display: inline-block;
+		.widget-title {
+			display: none;
+		}
 
-			&.widget_text {
-				font-size: 13px;
+		&.widget_text {
+			font-size: 13px;
+
+			a {
+				margin-right: 10px;
+				display: inline-block;
+				vertical-align: middle;
+
+				&:last-child {
+					margin-right: 0;
+				}
 			}
 		}
 	}
 
 	.main-header-area {
 		@extend %clear;
-		line-height: 75px;
+		line-height: 77px;
+		position: relative;
 
 		&.in-active {
 			line-height: 60px;
@@ -113,16 +89,45 @@
 			float: left;
 			width: 100%;
 			line-height: inherit;
+
+			img {
+				max-height: 55px;
+			    max-width: 150px;
+			    height: auto;
+			    width: auto;
+			}
 		}
 
 		.logo-wrapper {
 			margin: 0;
 		}
+
+		.hamburger-menu {
+			@include at-least($small-desktop){
+				display: none;
+			}
+		}
+
 		.menu-main-menu-container {
 			@include until($small-desktop){
-			  	display:none;
-			  	margin: 20px 0 0 0;
-			  }
+				background: #fbfbfb;
+			  	position: absolute;
+			  	top: 100%;
+			  	left: 0;
+    			right: 0;
+			  	overflow-y: auto;
+				opacity: 0;
+				visibility: hidden;
+			  	line-height: 45px;
+    			padding: 40px 20px;
+    			z-index: 9999;
+
+			  	&.is-active {
+			  		opacity: 1;
+					visibility: visible;
+					transition: opacity 200ms ease-out, visibility 200ms ease-out;
+			  	}
+			}
 		}
 
 		.search-button {
@@ -139,42 +144,108 @@
 		}
 
 		.menu {
-			text-align: center;
-			> li > a {
-				line-height: inherit;
+			@include until($small-desktop){
+				display: block;
+				text-align: left;
 			}
 
-			.menu-item-has-children {
-				&:hover .sub-menu {
-					visibility: visible;
-					opacity: 1;
+			> li > a {
+				@include at-least($small-desktop){
+					line-height: inherit;
 				}
 			}
 
 			.sub-menu {
-				opacity:0;
-				visibility: hidden;
-				position: absolute;
-				top: 100%;
-				left: 0;
-				min-width: 120px;
-				z-index:1;
-				background: #fff;
-				padding: 15px 10px;
-				transition: all 200ms ease-out;
-		    	transition-property: visibility, opacity;
-		    	transform: translateX(-50%);
-    			left: 50%;
-		    	margin:0;
-				padding:0;
-				list-style-type: none;
+				@include at-least($small-desktop){
+					opacity:0;
+					visibility: hidden;
+					position: absolute;
+					top: 100%;
+					left: 100%;
+					min-width: 200px;
+					z-index:1;
+					background: #fff;
+					padding: 15px 10px;
+					transition: all 200ms ease-out;
+			    	transition-property: visibility, opacity;
+	    			left: 50%;
+			    	margin:0;
+					padding:0;
+					list-style-type: none;
+					padding: 6px 15px;
+					line-height: 38px;
+					font-size: 14px;
+					box-shadow: 2px 1px 5px 0px rgba(0,0,0,0.1);
+				}
+
+				&.level-0 {
+					@include at-least($small-desktop){
+						left: 0;
+						border-top: 2px solid #af2323;
+						&:before {
+							content: "\f0d8";
+							@include font-icon;
+							margin-left: 8px;
+							position: absolute;
+    						top: -12px;
+    						color: #af2323;
+						}
+					}
+				}
 
 		    	@include until($small-desktop){
 				  	border-bottom: none;
+				  	padding-left: 20px;
+    				line-height: 35px;
+				}
+
+				li:last-child {
+					> a {
+						border-bottom: none;
+					}
 				}
 
 				a {
-    				line-height: 50px;
+					@include at-least($small-desktop){
+						line-height: inherit;
+						display: block;
+						border-bottom: 1px solid grey;
+						font-size: inherit;
+					}
+				}
+			}
+
+			li {
+				a {
+					@include until($small-desktop){
+						text-transform: uppercase;
+					}
+				}
+			}
+
+			.sep {
+				&:last-child {
+					display: none;
+				}
+				@include until($small-desktop){
+					display: none;
+				}
+			}
+
+			.menu-item-has-children {
+				&:hover .sub-menu {
+					@include at-least($small-desktop){
+						visibility: visible;
+						opacity: 1;
+					}
+				}
+
+				@include until($small-desktop){
+					> a:after {
+						content: "\f078";
+						@include font-icon;
+						margin-left: 8px;
+					}
 				}
 			}
 		}	

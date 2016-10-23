@@ -52,6 +52,12 @@
                         
                         <div class="header-inner">
                             <div class="frow">
+                                
+                                <a class="hamburger-menu" id="mobile-menu">
+                                    <div class="bar"></div>   
+                                </a>
+
+
                                 <?php wp_nav_menu( array( 
                                     'theme_location'    => 'primary',
                                     'menu_id'           => 'main-menu',
@@ -59,14 +65,12 @@
                                  ) ); ?>
 
                                 <a href="#" class="search-button"></a>
+                               
                             </div>
                         </div>
                        
                     </div>
                 </div>
-               <!--  <a href="#" class="mobile-menu" id="mobile-menu">
-                  <div class="mobile-menu-inner"></div>  
-                </a> -->
             </div>
         </header>
 

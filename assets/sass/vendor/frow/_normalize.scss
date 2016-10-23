@@ -459,3 +459,8 @@ template {
 [hidden] {
   display: none;
 }
+
+// Reset the box-sizing
+*, :after, :before {
+    box-sizing: border-box;
+}

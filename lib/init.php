@@ -65,6 +65,28 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	 */
 	public $db_fields = array( 'parent' => 'menu_item_parent', 'id' => 'db_id' );
 
+	/**
+	 * Starts the list before the elements are added.
+	 *
+	 * @see Walker::start_lvl()
+	 *
+	 * @since 3.0.0
+	 *
+	 * @param string $output Passed by reference. Used to append additional content.
+	 * @param int    $depth  Depth of menu item. Used for padding.
+	 * @param array  $args   An array of arguments. @see wp_nav_menu()
+	 */
+	public function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		if( $depth === 0 ) :
+			$output .= "\n$indent<ul class=\"sub-menu level-0\">\n";
+			return;
+		endif;
+			
+
+		$output .= "\n$indent<ul class=\"sub-menu\">\n";
+	}
+
  	/**
 	 * Ends the element output, if needed.
 	 *
@@ -78,8 +100,10 @@ class Walker_Quickstart_Menu extends Walker_Nav_Menu {
 	 * @param array  $args   An array of arguments. @see wp_nav_menu()
 	 */
 	public function end_el( &$output, $item, $depth = 0, $args = array() ) {
-		if( $depth === 0 )
-			$output .= "</li><li>/</li>\n"; return;
+		if( $depth === 0 ) :
+			$output .= "</li><li class='sep'>/</li>\n";
+			return;
+		endif;
 
 		$output .= "</li>\n";
 	}

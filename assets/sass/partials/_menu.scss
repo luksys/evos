@@ -4,7 +4,7 @@
 	list-style-type: none;
 	display: flex;
 
-	.current-menu-item a {
+	.current-menu-item > a {
 		color: $brand-color;
 	}
 

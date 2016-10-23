@@ -1,6 +1,8 @@
 .main {
     @extend %clear;
-    margin-top: 40px;
+    @include at-least($small-desktop){
+        margin-top: 40px;
+    }
 	.main-content {
 		overflow: hidden;
     	width: 66.66%;
