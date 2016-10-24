@@ -120,4 +120,49 @@
 			}
 		}
 	}
+
+	&.evos_widget_recent_entries {
+		li {
+			margin-bottom: 20px;
+			.item-widget-inner {
+				width: calc(100% - 100px);
+			}
+				
+			.item-widget-title {
+				text-transform: uppercase;
+				color: #fff;
+			}
+			.item-widget-content {
+				color: #cecece;
+				font-size: 12px;
+			}
+
+			.item-post-date {
+			    font-size: 12px;
+			    margin-bottom: 3px;
+
+			    .icon {
+			    	font-size: 14px;
+			    	display: inline-block;
+			    	vertical-align: middle;
+			    	margin-right: 5px;
+			    }
+
+			    .item-post-date-inner {
+			    	display: inline-block;
+			    	vertical-align: middle;
+			    }
+			}
+
+			a {
+				border: none;
+				padding: 0;
+
+				img {
+					width: 70px;
+					height: 70px;
+				}
+			}
+		}
+	}
 }
