@@ -107,7 +107,6 @@
                 </div>
             <?php endif;?>
             
-            <?php /*
             <div class="featured-section">
                 <div class="c outer">
                     <div class="text-body">Do you like this theme?</div>
@@ -116,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            */?>
+
             <?php evos_top_section_settings();?>
 
             <div class="c gutter">
