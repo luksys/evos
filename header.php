@@ -106,15 +106,23 @@
                         wp_reset_postdata();?>
                 </div>
             <?php endif;?>
-            
-            <div class="featured-section">
-                <div class="c outer">
-                    <div class="text-body">Do you like this theme?</div>
-                    <div class="helper">
-                        <a href="#" class="helper-button hvr-buzz-out">Download it NOW!</a>
+
+            <?php if( get_theme_mod('evos_call_to_action') ) : ?>
+                <div class="call-to-action">
+                    <div class="c outer">
+                        <div class="frow justify-between">
+                            <?php if( get_theme_mod('evos_call_to_action_text') ) : ?>
+                                <div class="call-to-action-text"><?php echo get_theme_mod('evos_call_to_action_text');?></div>
+                            <?php endif;?>
+                            <?php if( get_theme_mod('evos_call_to_action_button_text') ) : ?>
+                                <div class="call-to-action-helper">
+                                    <a href="<?php echo get_theme_mod('evos_call_to_action_button_link');?>" class="call-to-action-button hvr-buzz-out"><?php echo get_theme_mod('evos_call_to_action_button_text');?></a>
+                                </div>
+                            <?php endif;?>
+                        </div> 
                     </div>
                 </div>
-            </div>
+            <?php endif;?>
 
             <?php evos_top_section_settings();?>
 

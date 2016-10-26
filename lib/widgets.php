@@ -199,7 +199,7 @@ class Evos_Widget_Recent_Posts extends WP_Widget {
             'description' => __( 'Your site&#8217;s most recent Posts.' ),
             'customize_selective_refresh' => true,
         );
-        parent::__construct( 'evos_widget_recent_posts', __( 'Evos Recent Posts' ), $widget_ops );
+        parent::__construct( 'evos_widget_recent_posts', __( 'Evos: Recent Posts' ), $widget_ops );
         $this->alt_option_name = 'evos_widget_recent_posts';
     }
     /**
@@ -393,11 +393,10 @@ class Evos_Widget_Call_To_Action extends WP_Widget {
      * @return array Updated settings to save.
      */
     public function update( $new_instance, $old_instance ) {
-        // $instance = $old_instance;
-        // $instance['title'] = sanitize_text_field( $new_instance['title'] );
-        // $instance['number'] = (int) $new_instance['number'];
-        // $instance['show_date'] = isset( $new_instance['show_date'] ) ? (bool) $new_instance['show_date'] : false;
-        // return $instance;
+        $instance = $old_instance;
+        $instance['title'] = sanitize_text_field( $new_instance['title'] );
+        $instance['description'] = sanitize_text_field( $new_instance['description'] );
+        return $instance;
     }
     /**
      * Outputs the settings form for the Recent Posts widget.
@@ -408,20 +407,16 @@ class Evos_Widget_Call_To_Action extends WP_Widget {
      * @param array $instance Current settings.
      */
     public function form( $instance ) {
-        /*
-        $title     = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-        $number    = isset( $instance['number'] ) ? absint( $instance['number'] ) : 5;
-        $show_date = isset( $instance['show_date'] ) ? (bool) $instance['show_date'] : false;
+        
+        $title        = isset( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
+        $description  = isset( $instance['description'] ) ? esc_attr( $instance['description'] ) : '';
 ?>
         <p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo $title; ?>" /></p>
 
-        <p><label for="<?php echo $this->get_field_id( 'number' ); ?>"><?php _e( 'Number of posts to show:' ); ?></label>
-        <input class="tiny-text" id="<?php echo $this->get_field_id( 'number' ); ?>" name="<?php echo $this->get_field_name( 'number' ); ?>" type="number" step="1" min="1" value="<?php echo $number; ?>" size="3" /></p>
+        <p><label for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Title:' ); ?></label>
+        <input class="widefat" id="<?php echo $this->get_field_id( 'description' ); ?>" name="<?php echo $this->get_field_name( 'description' ); ?>" type="text" value="<?php echo $description; ?>" /></p>
 
-        <p><input class="checkbox" type="checkbox"<?php checked( $show_date ); ?> id="<?php echo $this->get_field_id( 'show_date' ); ?>" name="<?php echo $this->get_field_name( 'show_date' ); ?>" />
-        <label for="<?php echo $this->get_field_id( 'show_date' ); ?>"><?php _e( 'Display post date?' ); ?></label></p>
 <?php
-*/
     }
 }
