@@ -321,6 +321,61 @@ function mytheme_customize_register( $wp_customize ) {
       'type' => 'text'
   )));
 
+  // Articles
+  $wp_customize->add_section('evos_featured_posts', array(
+      'priority' => 1,
+      'title' => __('Featured Posts', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $posts_array = array('' => 'Select post');
+  $args = array( 'post_type' => 'post', 'posts_per_page' => -1 );
+  $posts = new WP_Query( $args );
+
+  // Get posts
+  if ( $posts->have_posts() ) :
+    while ( $posts->have_posts() ) :
+      $posts->the_post();
+      $posts_array[get_the_ID()] = get_the_title(); 
+    endwhile;
+    wp_reset_postdata();
+  endif;
+
+  $wp_customize->add_setting('evos_homepage_feautred_posts_1', array(
+    'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_homepage_feautred_posts_1', array(
+      'label' => __('Homepage post 1', 'evos'),
+      'section' => 'evos_featured_posts',
+      'setting' => 'evos_homepage_feautred_posts_1',
+      'type'    => 'select',
+      'choices' => $posts_array
+  )));
+
+  $wp_customize->add_setting('evos_homepage_feautred_posts_2', array(
+    'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_homepage_feautred_posts_2', array(
+      'label' => __('Homepage post 2', 'evos'),
+      'section' => 'evos_featured_posts',
+      'setting' => 'evos_homepage_feautred_posts_2',
+      'type'    => 'select',
+      'choices' => $posts_array
+  )));
+
+  $wp_customize->add_setting('evos_homepage_feautred_posts_3', array(
+    'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_homepage_feautred_posts_3', array(
+      'label' => __('Homepage post 3', 'evos'),
+      'section' => 'evos_featured_posts',
+      'setting' => 'evos_homepage_feautred_posts_3',
+      'type'    => 'select',
+      'choices' => $posts_array
+  )));
 
 
   // Layout options
