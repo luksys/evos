@@ -78,7 +78,7 @@ function evos_top_section_settings(){
     $display_top_banner = true;
 
   if( $display_top_banner && has_post_thumbnail() ) :
-    get_template_part('template-parts/content', 'banner');
+    get_template_part('modules/module', 'banner');
     $evos_extra_options['main_title'] = false;
   endif;
 }

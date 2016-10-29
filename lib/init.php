@@ -2,6 +2,13 @@
 global $evos_extra_options;
 $evos_extra_options['main_title'] = true;
 $evos_extra_options['evos_layout_options'] = array( 'no-sidebar' => 'No Sidebar', 'sidebar-left' => 'Left Sidebar', 'sidebar-right' => 'Right Sidebar', 'full-width' => 'Full Width' );
+$evos_extra_options['evos_modules'] = array(
+	array( 'module_title' => 'clients' ),
+	array( 'module_title' => 'team' ),
+	array( 'module_title' => 'portfolio' ),
+	array( 'module_title' => 'custom_banner' ),
+	array( 'module_title' => 'custom_block' ), 
+);
 
 if ( ! function_exists( 'evos_setup' ) ) :
 

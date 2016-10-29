@@ -3,6 +3,7 @@
 /* Include Theme Functions */
 /*-----------------------------------------------------------------------------------*/
 require_once locate_template('/lib/init.php');
+require_once locate_template('/lib/custom-post-types.php');
 require_once locate_template('/lib/metaboxes.php');
 require_once locate_template('/lib/widgets.php');
 require_once locate_template('/lib/scripts.php');

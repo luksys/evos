@@ -44,7 +44,6 @@ jQuery( document ).ready(function($) {
 
 	if( $('.header_sticky').length > 0 ) {
 		$(function() {
-			console.log('test');
 		    var menu, menuInner ,$document, didScroll, offset;
 		    menuInner = $('.main-header-area');
 		    menu = $('#mastheader');

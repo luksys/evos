@@ -328,6 +328,19 @@ function mytheme_customize_register( $wp_customize ) {
       'panel' => 'evos_homepage_panel'
   ));
 
+  // Enable articles
+  $wp_customize->add_setting('evos_display_featured_posts', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_featured_posts', array(
+      'label' => __('Enable featured posts?', 'evos'),
+      'section' => 'evos_featured_posts',
+      'setting' => 'evos_display_featured_posts',
+      'type' => 'checkbox'
+  )));
+
   $posts_array = array('' => 'Select post');
   $args = array( 'post_type' => 'post', 'posts_per_page' => -1 );
   $posts = new WP_Query( $args );
@@ -375,6 +388,309 @@ function mytheme_customize_register( $wp_customize ) {
       'setting' => 'evos_homepage_feautred_posts_3',
       'type'    => 'select',
       'choices' => $posts_array
+  )));
+
+  // CUSTOM BANNER BLOCK
+  $wp_customize->add_section('evos_custom_banner', array(
+      'priority' => 1,
+      'title' => __('Banner settings', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $wp_customize->add_setting('evos_display_custom_banner', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_custom_banner', array(
+      'label' => __('Custom banner', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_display_custom_banner',
+      'type'    => 'checkbox',
+  )));
+
+  // Custom block image
+  $wp_customize->add_setting('evos_custom_block_image', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+   ));
+
+   $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_custom_block_image', array(
+      'label' => __('Image', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_custom_block_image'
+   )));
+
+  // Custom block title
+  $wp_customize->add_setting('evos_custom_block_title', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_custom_block_title', array(
+      'label' => __('Title', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_custom_block_title',
+      'type' => 'text'
+  )));
+
+  // Custom block text
+  $wp_customize->add_setting('evos_custom_block_text', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_custom_block_text', array(
+      'label' => __('Description', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_custom_block_text',
+      'type' => 'textarea'
+  )));
+  
+  // Custom block button text
+  $wp_customize->add_setting('evos_custom_button_text', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_custom_button_text', array(
+      'label' => __('Button text', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_custom_button_text',
+      'type' => 'text'
+  )));
+
+  // Custom block button link
+  $wp_customize->add_setting('evos_custom_button_link', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_custom_button_link', array(
+      'label' => __('Button link', 'evos'),
+      'section' => 'evos_custom_banner',
+      'setting' => 'evos_custom_button_link',
+      'type' => 'text'
+  )));
+
+  // LOGO SECTION
+  $wp_customize->add_section('evos_logos_section', array(
+      'priority' => 1,
+      'title' => __('Logos section', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $wp_customize->add_setting('evos_display_logos_section', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_logos_section', array(
+      'label' => __('Enable logos section', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_display_logos_section',
+      'type'    => 'checkbox',
+  )));
+
+  // Logo slider title
+  $wp_customize->add_setting('evos_logos_section_title', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_logos_section_title', array(
+      'label' => __('Title', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_title',
+      'type' => 'text'
+  )));
+
+  // Logo slider subtitle
+   $wp_customize->add_setting('evos_logos_section_subtitle', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_logos_section_subtitle', array(
+      'label' => __('Subtitle', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_subtitle',
+      'type' => 'textarea'
+  )));
+
+  // Logo slide 1
+  $wp_customize->add_setting('evos_logos_fsection_image_1', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_1', array(
+      'label' => __('Logo 1', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_1'
+  )));
+
+  // Logo slide 2
+  $wp_customize->add_setting('evos_logos_section_image_2', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_2', array(
+      'label' => __('Logo 2', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_2'
+  )));
+  
+  // Logo slide 3
+  $wp_customize->add_setting('evos_logos_section_image_3', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_3', array(
+      'label' => __('Logo 3', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_3'
+  )));
+
+  // Logo slide 4
+  $wp_customize->add_setting('evos_logos_section_image_4', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_4', array(
+      'label' => __('Logo 4', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_4'
+  )));
+
+  // Logo slide 5 
+  $wp_customize->add_setting('evos_logos_section_image_5', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_5', array(
+      'label' => __('Logo 5', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_5'
+  )));
+
+  // Logo slide 6 
+  $wp_customize->add_setting('evos_logos_section_image_6', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_6', array(
+      'label' => __('Logo 6', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_6'
+  )));
+
+  // Logo slide 7 
+  $wp_customize->add_setting('evos_logos_section_image_7', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_7', array(
+      'label' => __('Logo 7', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_7'
+  )));
+
+  // Logo slide 8 
+  $wp_customize->add_setting('evos_logos_section_image_8', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_8', array(
+      'label' => __('Logo 8', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_8'
+  )));
+
+  // Logo slide 9   
+  $wp_customize->add_setting('evos_logos_section_image_9', array(
+      'default' => '',
+      'capability' => 'edit_theme_options',
+      'sanitize_callback' => 'esc_url_raw'
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'evos_logos_section_image_9', array(
+      'label' => __('Logo 9', 'evos'),
+      'section' => 'evos_logos_section',
+      'setting' => 'evos_logos_section_image_9'
+  )));
+
+  // TEAM SECTION
+  $wp_customize->add_section('evos_team', array(
+      'priority' => 1,
+      'title' => __('Team', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $wp_customize->add_setting('evos_display_team', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_team', array(
+      'label' => __('Enable team members', 'evos'),
+      'section' => 'evos_team',
+      'setting' => 'evos_display_team',
+      'type'    => 'checkbox',
+  )));
+
+  // PORTFOLIO SECTION
+  $wp_customize->add_section('evos_portfolio', array(
+      'priority' => 1,
+      'title' => __('Portfolio', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $wp_customize->add_setting('evos_display_portfolio', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_portfolio', array(
+      'label' => __('Enable portfolio', 'evos'),
+      'section' => 'evos_portfolio',
+      'setting' => 'evos_display_portfolio',
+      'type'    => 'checkbox',
+  )));
+
+  // TESTIMONIALS SECTION
+  $wp_customize->add_section('evos_testimonials', array(
+      'priority' => 1,
+      'title' => __('Testimonials', 'evos'),
+      'panel' => 'evos_homepage_panel'
+  ));
+
+  $wp_customize->add_setting('evos_display_testimonials', array(
+      'default' => 0,
+      'capability' => 'edit_theme_options',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'evos_display_testimonials', array(
+      'label' => __('Enable testimonials', 'evos'),
+      'section' => 'evos_testimonials',
+      'setting' => 'evos_display_testimonials',
+      'type'    => 'checkbox',
   )));
 
 
